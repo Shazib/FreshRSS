@@ -1,0 +1,25 @@
+<?php
+return [
+	'corvus_settings' => [
+		'intro' => 'For Corvus 1.2+. Settings follow your account across devices. Fonts use local fallbacks; no external fonts are downloaded.',
+		'inactive' => 'Select Corvus in Configuration → Display to see these settings. Other themes are unaffected.',
+		'invalid' => 'Nothing was saved. Check the allowed values for:',
+		'interface' => 'Interface', 'reader' => 'Article reader', 'sidebar' => 'Subscription sidebar', 'list' => 'Article list',
+		'ui_font' => 'Interface font', 'article_font' => 'Article body font',
+		'font_system' => 'System sans serif', 'font_georgia' => 'Georgia', 'font_serif' => 'System serif',
+		'font_arial' => 'Arial / Helvetica', 'font_verdana' => 'Verdana', 'font_monospace' => 'Monospace',
+		'ui_size' => 'Interface font size', 'help_ui_size' => '12–18 px.',
+		'page_padding' => 'Page side margins', 'help_page_padding' => '8–48 px. Default preserves the theme’s responsive spacing.',
+		'section_spacing' => 'Section spacing', 'help_section_spacing' => '8–48 px between form fields and below page headings.',
+		'article_size' => 'Article font size', 'help_article_size' => '14–28 px.',
+		'article_line' => 'Article line spacing', 'help_article_line' => '1.3–2.4 times the font size.',
+		'reader_width' => 'Reader maximum width', 'help_reader_width' => '0 follows FreshRSS Content width. Otherwise enter 480–1800 px; smaller screens still fit.',
+		'article_padding' => 'Article side padding', 'help_article_padding' => '12–80 px inside the reading surface. Capped on small screens.',
+		'sidebar_width' => 'Sidebar width', 'help_sidebar_width' => '180–400 px; the mobile drawer remains capped to the screen.',
+		'sidebar_size' => 'Sidebar font size', 'help_sidebar_size' => '11–18 px for categories and feeds.',
+		'sidebar_row' => 'Subscription row height', 'help_sidebar_row' => '0 preserves theme defaults. Otherwise 24–56 px minimum height for categories and feeds.',
+		'sidebar_padding' => 'Sidebar side padding', 'help_sidebar_padding' => '4–24 px for navigation rows and unread badges.',
+		'list_row' => 'Article list row height', 'help_list_row' => '36–96 px minimum. Thumbnails or summaries may require taller rows.',
+		'reset' => 'Restore theme defaults',
+	],
+];

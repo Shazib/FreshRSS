@@ -1,0 +1,2030 @@
+@charset "UTF-8";
+
+/* Corvus AWPG-inspired styling. Also usable as User CSS with Origine selected.
+ * Intentionally dark, like Nord / Alternative Dark; independent of OS mode.
+ * Double :root specificity takes precedence over Origine's automatic palette.
+ */
+
+:root:root {
+	--cv-bg: #151515;
+	--cv-surface: #1b1d21;
+	--cv-raised: #212427;
+	--cv-hover: #2d3034;
+	--cv-line: #3c3f42;
+	--cv-fg: #f0f0f0;
+	--cv-muted: #b8bbbe;
+	--cv-subtle: #8f9397;
+	--cv-blue: #4dabf7;
+	--cv-solid: #2b9af3;
+	--cv-good: #87bb62;
+	--cv-warn: #f6be00;
+	--cv-danger: #ff7468;
+	--width-aside: 240px;
+	--frss-padding-top-bottom: 0.5rem;
+	--frss-padding-flux-items: 0.65rem;
+	--frss-font-color-dark: var(--cv-fg);
+	--frss-font-color-grey-dark: var(--cv-muted);
+	--frss-font-color-grey-light: var(--cv-subtle);
+	--frss-font-color-light: var(--cv-fg);
+	--frss-font-color-disabled: var(--cv-subtle);
+	--frss-font-color-error: var(--cv-danger);
+	--frss-background-color: var(--cv-surface);
+	--frss-background-color-transparent: #1b1d21eb;
+	--frss-background-color-middle: var(--cv-raised);
+	--frss-background-color-dark: var(--cv-hover);
+	--frss-border-color: var(--cv-line);
+	--frss-border-color-error: var(--cv-danger);
+	--frss-switch-accent-color: var(--cv-solid);
+	--frss-modal-background-color-transparent: #0009;
+	--frss-scrollbar-handle: #54585c;
+	--frss-scrollbar-handle-hover: #8f9397;
+	--frss-scrollbar-track: transparent;
+	--frss-scrollbar-track-hover: transparent;
+	--frss-noThumbnailImage-background-color: var(--cv-hover);
+	--background-color-light-gradient1: var(--cv-surface);
+	--background-color-light-gradient2: var(--cv-surface);
+	--background-color-light: var(--cv-surface);
+	--background-color-light-shadowed: var(--cv-raised);
+	--background-color-light-shadowed-transparent: #212427eb;
+	--background-color-grey: var(--cv-raised);
+	--background-color-hover: var(--cv-hover);
+	--unread-article-background-color: var(--cv-surface);
+	--unread-article-background-color-hover: var(--cv-raised);
+	--unread-article-border-color: var(--cv-solid);
+	--favorite-article-background-color: var(--cv-surface);
+	--favorite-article-background-color-hover: var(--cv-raised);
+	--favorite-article-border-color: var(--cv-warn);
+	--contrast-background-color: var(--cv-solid);
+	--contrast-background-color-gradient: var(--cv-solid);
+	--contrast-background-color-hover: var(--cv-blue);
+	--contrast-background-color-active: var(--cv-solid);
+	--contrast-border-color: var(--cv-solid);
+	--contrast-border-color-active: var(--cv-solid);
+	--contrast-background-font-color: var(--cv-bg);
+	--attention-background-color-gradient1: #a32920;
+	--attention-background-color-gradient2: #a32920;
+	--attention-background-color-gradient1-hover: #bc352a;
+	--attention-background-color-gradient2-hover: #bc352a;
+	--attention-background-color-active: #a32920;
+	--attention-border-color: var(--cv-danger);
+	--empty-feed-color: var(--cv-subtle);
+	--error-feed-color: var(--cv-danger);
+	--font-color: var(--cv-fg);
+	--font-color-grey: var(--cv-muted);
+	--font-color-light-shadowed: var(--cv-subtle);
+	--font-color-light: var(--cv-fg);
+	--font-color-link: var(--cv-blue);
+	--font-color-link-hover: #8dccff;
+	--border-color: var(--cv-line);
+	--border-color-shadow-side: var(--cv-line);
+	--box-shadow-color: transparent;
+	--box-shadow-color-inset: transparent;
+	--text-shadow-color: transparent;
+	--text-shadow-color-dark: transparent;
+	--form-element-font-color-focus: var(--cv-fg);
+	--form-element-border-color-focus: var(--cv-blue);
+	--form-element-focus-box-shadow-color-inset: transparent;
+	--form-element-border-color-invalid: var(--cv-danger);
+	--form-element-invalid-box-shadow-color-inset: transparent;
+	--alert-warn-background-color: #302b1b;
+	--alert-warn-font-color: #f6d980;
+	--alert-warn-border-color: #75602e;
+	--alert-info-background-color: #192b3b;
+	--alert-info-font-color: #b8ddfa;
+	--alert-info-border-color: #305577;
+	--alert-success-background-color: #202d20;
+	--alert-success-font-color: #bcdda5;
+	--alert-success-border-color: #47633b;
+	--alert-error-background-color: #32201f;
+	--alert-error-font-color: #ffb0a8;
+	--alert-error-border-color: #82423c;
+	--notification-good-background-color: var(--cv-raised);
+	--notification-good-border-color: #47633b;
+	--notification-good-font-color: #bcdda5;
+	--notification-bad-background-color: #32201f;
+	--notification-bad-border-color: #82423c;
+	--notification-bad-font-color: #ffb0a8;
+	color-scheme: dark;
+}
+
+html, body {
+	background: var(--cv-bg);
+	color: var(--cv-fg);
+	font-family: var(--cv-ui-font, system-ui, -apple-system, "Segoe UI", sans-serif);
+	font-size: var(--cv-ui-size, 14px);
+}
+
+::selection {
+	background: #2b9af34d;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, summary:focus-visible {
+	outline: 2px solid var(--cv-blue);
+	outline-offset: 3px;
+}
+
+/* Dark masthead and compact, permanently dark navigation. */
+.header {
+	background: var(--cv-bg);
+	height: 44px;
+}
+
+.header > .item.title {
+	width: var(--width-aside);
+	text-align: right;
+}
+
+.header > .item.title .logo {
+	height: 22px;
+	filter: grayscale(1) brightness(2);
+}
+
+.header > .item.search input {
+	max-width: 100%;
+	width: 360px;
+}
+
+#global {
+	background: var(--cv-bg);
+}
+
+.aside, .aside.aside_feed {
+	background: var(--cv-raised);
+	color: var(--cv-muted);
+	border-color: var(--cv-line);
+}
+
+.aside .tree-folder-title,
+.aside .tree-folder-items {
+	background: transparent;
+	border-color: var(--cv-line);
+}
+
+.aside .tree-folder-title {
+	padding-block: 3px;
+	font-size: 13px;
+}
+
+.aside .tree-folder-title .title,
+.aside .tree-folder-items > .item > a,
+.aside.nav-list .item a {
+	color: var(--cv-muted);
+}
+
+.aside .tree-folder.active .tree-folder-title,
+.aside .tree-folder-items > .item.active,
+.aside.nav-list .item.active {
+	background: #2f3338;
+	box-shadow: inset -3px 0 var(--cv-solid);
+}
+
+.aside .tree-folder.active .tree-folder-title .title,
+.aside .tree-folder-items > .item.active > a,
+.aside.nav-list .item.active a {
+	color: var(--cv-fg);
+}
+
+.aside .tree-folder-items > .item {
+	padding-block: 3px;
+	font-size: 12px;
+}
+
+.aside .tree-folder-title:hover,
+.aside .tree-folder-items > .item:hover {
+	background: #2a2d31;
+}
+
+.aside.aside_feed .category .title:not([data-unread="0"])::after,
+.aside.aside_feed .feed .item-title:not([data-unread="0"])::after {
+	background: var(--cv-hover);
+	color: var(--cv-muted);
+	border: 1px solid #54585c;
+	border-radius: 2px;
+}
+
+:root:root .nav_menu {
+	padding-block: 5px;
+	background: var(--cv-surface);
+	border-color: var(--cv-line);
+	text-align: start;
+}
+
+.nav_menu .btn, .nav_menu .stick, .nav_menu .group {
+	margin-inline: 4px;
+}
+
+/* Shared controls also cover configuration pages and feed-edit drawers. */
+.btn, input, select, textarea {
+	background: var(--cv-surface);
+	color: var(--cv-fg);
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+.btn {
+	padding: 6px 12px;
+	font-size: 13px;
+}
+
+:root:root .nav_menu .btn {
+	margin: 0;
+	padding: 4px 9px;
+	display: inline-flex;
+	height: 30px;
+	color: var(--cv-muted);
+	min-height: 30px;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
+	line-height: 20px;
+}
+
+.btn:hover, :root:root .nav_menu .btn:hover {
+	background: var(--cv-hover);
+	color: var(--cv-fg);
+	border-color: #54585c;
+}
+
+.btn.btn-important, .btn.active, :root:root .nav_menu .btn.active {
+	background: var(--cv-solid);
+	color: var(--cv-bg);
+	border-color: var(--cv-solid);
+	box-shadow: none;
+}
+
+.dropdown-menu, .box, #slider, .post {
+	background: var(--cv-surface);
+	color: var(--cv-fg);
+	border-color: var(--cv-line);
+	border-radius: 3px;
+	box-shadow: none;
+}
+
+html:root .dropdown-menu {
+	background: var(--cv-surface);
+}
+
+.dropdown-menu a:hover, .dropdown-menu .as-link:hover {
+	background: var(--cv-hover);
+}
+
+.icon {
+	filter: grayscale(1) brightness(1.7);
+	opacity: 0.85;
+}
+
+.bookmark .icon {
+	filter: none;
+	opacity: 1;
+}
+
+/* Bordered rows echo Corvus's proxy-host table; preserve every native action. */
+#stream.normal, #stream.reader, #stream.global {
+	padding: 20px var(--cv-page-padding, 28px) 60px;
+	background: var(--cv-bg);
+	box-sizing: border-box;
+}
+
+#stream.normal .transition {
+	padding: 12px 16px;
+	background: var(--cv-surface);
+	display: flex;
+	color: var(--cv-subtle);
+	font-size: 12px;
+	border: 1px solid var(--cv-line);
+	border-bottom: 0;
+	align-items: center;
+	gap: 12px;
+	line-height: 1.5;
+	font-weight: 500;
+}
+
+#stream.normal .transition .transition-value {
+	display: flex;
+	min-width: 0;
+	flex: 1;
+	align-items: center;
+	gap: 6px;
+}
+
+#stream.normal .transition-value > a:first-of-type {
+	min-width: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+}
+
+#stream.normal .transition-next {
+	margin: 0;
+	flex: 0 0 auto;
+}
+
+#stream.normal .transition .name {
+	max-width: 45%;
+	width: auto;
+	position: static;
+	min-width: 0;
+	margin-inline-start: auto;
+	text-align: end;
+}
+
+.transition .name {
+	color: var(--cv-muted);
+	font-size: 14px;
+	opacity: 1;
+	text-shadow: none;
+	font-style: normal;
+}
+
+#stream.normal > .flux {
+	background: var(--cv-surface);
+	border: 1px solid var(--cv-line);
+	border-bottom: 0;
+	border-inline-start: 3px solid transparent;
+}
+
+#stream.normal > .flux:last-of-type {
+	border-bottom: 1px solid var(--cv-line);
+}
+
+#stream.normal > .flux.not_read,
+#stream.normal > .flux.current {
+	border-inline-start-color: var(--cv-solid);
+}
+
+#stream.normal > .flux.favorite {
+	border-inline-start-color: var(--cv-warn);
+}
+
+#stream.normal .flux > .flux_header {
+	margin: 0;
+	padding: 4px 10px;
+	background: var(--cv-surface);
+	min-height: var(--cv-list-row, 48px);
+	font-size: 13px;
+	border: 0;
+	box-sizing: border-box;
+}
+
+#stream.normal .flux > .flux_header:hover,
+#stream.normal .flux.current > .flux_header,
+#stream.normal .flux.active > .flux_header {
+	background: var(--cv-raised);
+}
+
+.flux .flux_header .item.website {
+	width: 160px;
+	color: var(--cv-muted);
+	font-size: 12px;
+}
+
+.flux .flux_header.websiteicon .item.website {
+	width: 36px;
+}
+
+.flux .flux_header .item .title {
+	color: var(--cv-muted);
+	font-weight: 400;
+}
+
+.flux.not_read .flux_header .item .title,
+.flux.current .flux_header .item .title {
+	color: var(--cv-fg);
+	font-weight: 600;
+}
+
+.flux .flux_header .item .summary,
+.flux .flux_header .item .date {
+	color: var(--cv-subtle);
+	font-size: 12px;
+}
+
+/* The same reading surface serves expanded normal-view articles and reader view. */
+#stream.normal .flux_content {
+	padding: 32px 0 0;
+	background: var(--cv-surface);
+	border-top: 1px solid var(--cv-line);
+}
+
+#stream.reader .flux {
+	padding: 0 0 28px;
+	background: transparent;
+	border: 0;
+}
+
+#stream.reader .flux .flux_content {
+	padding: 36px 0 0;
+	background: var(--cv-surface);
+	width: 100%;
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	box-sizing: border-box;
+}
+
+#stream.reader .flux.current .flux_content {
+	border-color: #54585c;
+}
+
+.flux_content .content {
+	color: var(--cv-muted);
+	font-size: var(--cv-article-size, 17px);
+	line-height: var(--cv-article-line, 1.8);
+}
+
+.flux_content .content > header,
+.flux_content .content > .text,
+.flux_content .content > footer {
+	padding-inline: var(--cv-article-padding, clamp(20px, 4vw, 56px));
+}
+
+.flux_content .content > header {
+	padding-top: 0;
+	padding-bottom: 24px;
+	font-size: 13px;
+}
+
+.flux_content .content h1.title {
+	margin: 16px 0;
+	color: var(--cv-fg);
+	font-size: clamp(24px, 2.4vw, 34px);
+	font-weight: 600;
+	letter-spacing: -0.035em;
+	line-height: 1.25;
+	text-wrap: balance;
+}
+
+.flux_content .content h1.title a {
+	color: var(--cv-fg);
+}
+
+.flux_content .content .subtitle,
+.flux_content .content > footer {
+	color: var(--cv-subtle);
+	font-size: 12px;
+}
+
+.flux_content .content .text p {
+	margin: 0 0 1.35em;
+}
+
+.flux_content .content .text h2,
+.flux_content .content .text h3,
+.flux_content .content .text h4 {
+	margin: 1.6em 0 0.6em;
+	color: var(--cv-fg);
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	line-height: 1.35;
+}
+
+.flux_content .content .text a {
+	text-decoration: underline;
+	text-decoration-color: #4dabf777;
+	text-underline-offset: 3px;
+}
+
+.flux_content .content .text blockquote {
+	margin: 24px 0;
+	padding: 12px 20px;
+	background: var(--cv-raised);
+	color: var(--cv-muted);
+	border: 0;
+	border-inline-start: 3px solid var(--cv-solid);
+}
+
+.flux_content .content pre,
+.flux_content .content code {
+	background: var(--cv-bg);
+	color: #d3e7f8;
+	font-size: 0.85em;
+	border-color: var(--cv-line);
+	border-radius: 3px;
+}
+
+.flux_content .content pre {
+	padding: 20px;
+	border: 1px solid var(--cv-line);
+	line-height: 1.6;
+}
+
+.flux_content .content .text img,
+.flux_content .content .text video {
+	max-width: 100%;
+	height: auto;
+	border-radius: 3px;
+}
+
+.flux_content .content .text iframe {
+	max-width: 100%;
+}
+
+.flux_content .content .text table {
+	width: 100%;
+	font-size: 14px;
+	border-collapse: collapse;
+}
+
+.flux_content .content .text th,
+.flux_content .content .text td {
+	padding: 10px 14px;
+	border: 1px solid var(--cv-line);
+	text-align: start;
+}
+
+.flux_content .content .text th {
+	background: var(--cv-raised);
+	color: var(--cv-fg);
+}
+
+.flux_content > footer {
+	margin-top: 28px;
+	padding: 10px 20px;
+	background: var(--cv-raised);
+	border-top: 1px solid var(--cv-line);
+}
+
+.flux_content .content .tags .list-tags .item.tag a {
+	padding: 2px 6px;
+	background: #192b3b;
+	color: #b8ddfa;
+	font-size: 12px;
+	border: 1px solid #305577;
+	border-radius: 2px;
+	text-decoration: none;
+}
+
+@media (max-width: 840px) {
+	.header > .item.title {
+		width: 75%;
+	}
+
+	#stream.normal, #stream.reader, #stream.global {
+		padding: 12px var(--cv-page-padding, 8px) 72px;
+	}
+
+	#stream.normal .flux > .flux_header {
+		padding-inline: 4px;
+	}
+
+	.flux .flux_header .item.website {
+		width: 32px;
+	}
+
+	.flux_content .content {
+		font-size: var(--cv-article-size, 16px);
+		line-height: var(--cv-article-line, 1.75);
+	}
+
+	#stream.normal .flux_content,
+	#stream.reader .flux .flux_content {
+		padding-top: 24px;
+	}
+
+	.flux_content .content > header,
+	.flux_content .content > .text,
+	.flux_content .content > footer {
+		padding-inline: min(var(--cv-article-padding, 18px), 8vw);
+	}
+
+	.flux_content .content h1.title {
+		font-size: 26px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.flux, .flux_content, .btn {
+		transition: none;
+	}
+}
+
+/* Theme-owned Lucide outline icons; User CSS retains the base theme's icons. */
+.theme_Corvus .icon,
+.theme_Corvus .header > .item.title .logo,
+.theme_Corvus .tree-folder-items > .item.active .icon {
+	filter: none;
+	opacity: 1;
+}
+
+.theme_Corvus .btn-important .icon,
+.theme_Corvus .btn.active .icon {
+	filter: brightness(0.15);
+}
+
+/* A clear page title and restrained controls replace the old toolbar-heavy feel. */
+:root:root .header {
+	background: var(--cv-bg);
+}
+
+.corvus-page-heading {
+	margin: -20px calc(-1 * var(--cv-page-padding, 28px)) 20px;
+	padding: 20px var(--cv-page-padding, 28px);
+	background: var(--cv-surface);
+	border-bottom: 1px solid var(--cv-line);
+}
+
+.corvus-view-label {
+	margin-bottom: 6px;
+	color: var(--cv-subtle);
+	font-size: 12px;
+}
+
+.corvus-page-heading :is(h1, h2) {
+	margin: 0;
+	color: var(--cv-fg);
+	font-size: 24px;
+	font-weight: 500;
+	letter-spacing: -0.03em;
+	line-height: 1.3;
+}
+
+.aside .btn-important {
+	margin: 0;
+	padding: 8px 12px;
+	background: transparent;
+	color: var(--cv-muted);
+	border-color: #54585c;
+}
+
+:root:root .nav_menu .btn.active,
+:root:root .nav_menu .btn:active {
+	background: #192b3b;
+	color: var(--cv-blue);
+	border-color: #305577;
+}
+
+.theme_Corvus .nav_menu .btn.active .icon {
+	filter: none;
+}
+
+.flux_content .content h1.title a,
+.flux_content .content h1.title a:hover {
+	text-decoration: none;
+}
+
+.flux_content .content .text {
+	padding-top: 0;
+}
+
+@media (max-width: 840px) {
+	.corvus-page-heading {
+		margin: -12px calc(-1 * var(--cv-page-padding, 8px)) 12px;
+		padding: 16px var(--cv-page-padding, 20px);
+	}
+
+	.corvus-page-heading :is(h1, h2) {
+		font-size: 22px;
+	}
+}
+
+.aside .configure-feeds {
+	margin: 4px 12px 12px;
+	display: flex;
+	max-width: calc(100% - 24px);
+}
+
+.aside .configure-feeds #btn-subscription {
+	min-width: 0;
+	flex: 1;
+	text-overflow: ellipsis;
+	white-space: normal;
+	text-align: start;
+}
+
+.aside .configure-feeds #btn-add {
+	flex: 0 0 auto;
+	padding: 6px;
+	display: flex;
+	width: 30px;
+	align-items: center;
+	justify-content: center;
+}
+
+.theme_Corvus .aside .btn-important .icon {
+	filter: none;
+}
+
+/* Centre every counter on its row instead of inheriting fixed top margins. */
+.aside.aside_feed .category .tree-folder-title .title:not([data-unread="0"])::after,
+.aside.aside_feed .feed .item-title:not([data-unread="0"])::after {
+	margin: 0;
+	padding: 0 6px;
+	display: flex;
+	min-width: 26px;
+	height: 18px;
+	font-size: 11px;
+	box-sizing: border-box;
+	align-items: center;
+	justify-content: center;
+	top: 50%;
+	transform: translateY(-50%);
+	font-variant-numeric: tabular-nums;
+	left: var(--cv-sidebar-padding, 12px);
+}
+
+/* Compact masthead and toolbar: common control height, no stacked margins. */
+.header > .item {
+	padding-block: 5px;
+}
+
+.header input,
+.header .btn {
+	padding: 4px 10px;
+	height: 30px;
+	box-sizing: border-box;
+	line-height: 20px;
+}
+
+.nav_menu .stick,
+.nav_menu .group {
+	margin-block: 0;
+	vertical-align: middle;
+}
+
+.aside .configure-feeds .btn {
+	padding: 6px 8px;
+	min-height: 30px;
+	font-size: 12px;
+	box-sizing: border-box;
+	line-height: 18px;
+}
+
+@media (max-width: 840px) {
+	:root:root .nav_menu .btn {
+		padding-inline: 6px;
+	}
+}
+
+/* Use one baseline and spacing rhythm for feed, author and date metadata. */
+.flux_content .content > header .subtitle,
+.flux_content .content > footer .subtitle {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 6px 12px;
+	line-height: 20px;
+}
+
+.flux_content .content .subtitle.horizontal-list > .item {
+	padding: 0;
+	width: auto;
+	min-width: 0;
+	align-self: center;
+	flex: 0 1 auto;
+	text-align: start;
+}
+
+.flux_content .content .subtitle > div::before {
+	content: none;
+}
+
+.flux_content .content .subtitle .website,
+.flux_content .content .subtitle a.website,
+.flux_content .content .subtitle .website > a {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	vertical-align: middle;
+}
+
+.flux_content .content .subtitle .website .favicon {
+	margin: 0;
+	width: 16px;
+	height: 16px;
+	flex: 0 0 16px;
+	vertical-align: middle;
+}
+
+/* Keep the footer legible and aligned even with most article actions disabled. */
+.reader .flux_content > footer,
+.normal .flux_content > footer {
+	padding: 10px clamp(18px, 4vw, 56px);
+}
+
+.flux_content > footer .horizontal-list.bottom {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	gap: 8px 12px;
+	min-height: 28px;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.flux_content > footer .bottom > .item {
+	width: auto;
+	flex: 0 1 auto;
+	align-self: center;
+}
+
+.flux_content > footer .bottom > .item:empty {
+	display: none;
+}
+
+.flux_content > footer .bottom .item.date {
+	font-size: 12px;
+}
+
+.flux_content > footer .bottom > .item > a,
+.flux_content > footer .bottom .item-element {
+	padding: 0;
+	display: inline-flex;
+	min-height: 28px;
+	align-items: center;
+	gap: 6px;
+}
+
+/* Feed HTML often puts an image and its description in the same paragraph. */
+.flux_content .content .text img {
+	margin-block: 0 1em;
+	display: block;
+	float: none;
+	clear: both;
+}
+
+.flux_content .content .text picture,
+.flux_content .content .text a:has(> img),
+.flux_content .content .text a:has(> picture) {
+	display: block;
+}
+
+.flux_content .content .subtitle.horizontal-list > .item:not(.manage):not(.date):not(.link) {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 6px 8px;
+}
+
+/* Administration is a workspace: header, controls, data panel and action footer. */
+.post.cv-admin {
+	padding: 20px var(--cv-page-padding, 28px) 40px;
+	background: var(--cv-bg);
+	vertical-align: top;
+	font-size: var(--cv-ui-size, 14px);
+}
+
+.cv-admin > .corvus-page-heading {
+	margin-bottom: var(--cv-section-spacing, 24px);
+}
+
+.cv-admin input:not([type="checkbox"], [type="radio"], [type="hidden"]),
+.cv-admin select {
+	padding: 6px 10px;
+	min-height: 34px;
+	box-sizing: border-box;
+	font-size: 13px;
+	line-height: 20px;
+}
+
+.cv-admin .btn {
+	padding: 6px 12px;
+	min-height: 34px;
+	box-sizing: border-box;
+	line-height: 20px;
+	font-size: calc(var(--cv-ui-size, 14px) * 0.93);
+}
+
+.aside.nav-list .nav-header {
+	padding-block: 6px;
+	background: transparent;
+	color: var(--cv-subtle);
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 20px;
+}
+
+.aside.nav-list .nav-section .item > a,
+.aside.nav-list .nav-section .item > form > .as-link {
+	padding: 8px 16px;
+	min-height: 36px;
+	box-sizing: border-box;
+	font-size: 13px;
+	line-height: 20px;
+}
+
+.aside.nav-list .nav-section .item > .cv-back,
+.aside.nav-list .nav-section .item > form > .cv-signout {
+	margin: 8px 12px;
+	padding: 6px 10px;
+	background: var(--cv-surface);
+	display: flex;
+	width: calc(100% - 24px);
+	color: var(--cv-fg);
+	border: 1px solid #54585c;
+	border-radius: 3px;
+	align-items: center;
+	gap: 8px;
+	text-align: start;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.aside.nav-list .nav-section .item > .cv-back:hover,
+.aside.nav-list .nav-section .item > form > .cv-signout:hover {
+	background: var(--cv-hover);
+	border-color: var(--cv-blue);
+}
+
+.cv-log-panel {
+	background: var(--cv-surface);
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+.cv-logs .cv-log-panel > form[name="log_search"] {
+	margin: 0;
+	padding: 12px 16px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+	border-bottom: 1px solid var(--cv-line);
+}
+
+.cv-logs form[name="log_search"] label {
+	padding: 0;
+	color: var(--cv-muted);
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.cv-logs #log-search {
+	max-width: 100%;
+	width: 320px;
+	min-width: 0;
+	flex: 0 1 320px;
+}
+
+.cv-logs .cv-log-panel > form[method="post"] {
+	margin: 0;
+}
+
+.cv-empty-toggle {
+	padding: 10px 16px;
+	display: flex;
+	color: var(--cv-subtle);
+	font-size: 12px;
+	border-bottom: 1px solid var(--cv-line);
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+}
+
+.cv-empty-toggle input[type="checkbox"] {
+	margin: 0;
+	width: 14px;
+	height: 14px;
+	accent-color: var(--cv-solid);
+}
+
+.cv-logs #loglist-wrapper {
+	margin: 0;
+	width: 100%;
+}
+
+.cv-logs #loglist {
+	margin: 0;
+	width: 100%;
+	border: 0;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.cv-logs #loglist th,
+.cv-logs #loglist td {
+	padding: 12px 16px;
+	color: var(--cv-muted);
+	font-family: inherit;
+	font-size: 13px;
+	border: 0;
+	border-bottom: 1px solid var(--cv-line);
+	text-align: start;
+	vertical-align: middle;
+	font-weight: 400;
+	line-height: 1.6;
+}
+
+.cv-logs #loglist th {
+	padding-block: 10px;
+	color: var(--cv-fg);
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.cv-logs #loglist th:first-child {
+	width: 120px;
+}
+
+.cv-logs #loglist th:nth-child(2) {
+	width: 140px;
+}
+
+.cv-logs #loglist .log-message {
+	overflow-wrap: anywhere;
+	white-space: normal;
+}
+
+.cv-logs #loglist tbody tr:hover {
+	background: var(--cv-raised);
+}
+
+.cv-logs .log-level .icon {
+	margin-inline-end: 8px;
+	vertical-align: middle;
+}
+
+.cv-level {
+	padding: 2px 6px;
+	color: var(--cv-muted);
+	font-size: 11px;
+	border: 1px solid #54585c;
+	border-radius: 2px;
+	text-transform: capitalize;
+}
+
+.log-warning .cv-level {
+	color: #f6d980;
+	border-color: #75602e;
+}
+
+.log-error .cv-level {
+	color: #ffb0a8;
+	border-color: #82423c;
+}
+
+.cv-log-day, .cv-log-clock {
+	display: block;
+	font-variant-numeric: tabular-nums;
+}
+
+.cv-log-clock {
+	color: var(--cv-subtle);
+	font-size: 12px;
+}
+
+.cv-logs #loglist .cv-empty-log .log-message {
+	color: var(--cv-subtle);
+	font-style: italic;
+}
+
+/* Use compact discrete page buttons instead of a stretched table of links. */
+.cv-logs .nav-pagination {
+	margin: 0;
+	padding: 12px 16px;
+	background: var(--cv-surface);
+	border-bottom: 1px solid var(--cv-line);
+}
+
+.cv-logs .pagination {
+	margin: 0;
+	background: transparent;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+}
+
+.cv-logs .pagination .item {
+	background: transparent;
+	display: flex;
+	width: auto;
+	border: 0;
+	min-width: 32px;
+	min-height: 32px;
+	align-items: center;
+	justify-content: center;
+	line-height: 20px;
+}
+
+.cv-logs .pagination .item[hidden],
+.cv-logs .log-item[hidden] {
+	display: none;
+}
+
+.cv-logs .pagination .item a {
+	padding: 5px 10px;
+	display: flex;
+	min-height: 32px;
+	box-sizing: border-box;
+	color: var(--cv-muted);
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	align-items: center;
+	justify-content: center;
+	line-height: 20px;
+}
+
+.cv-logs .pagination .item.active a {
+	background: #192b3b;
+	color: var(--cv-blue);
+	border-color: #305577;
+}
+
+.cv-logs .pagination .item a:hover {
+	background: var(--cv-hover);
+	border-color: #54585c;
+}
+
+.cv-logs .form-group.form-actions {
+	margin: 0;
+	padding: 12px 16px;
+	background: var(--cv-surface);
+	border: 0;
+}
+
+.cv-logs .form-actions .group-controls {
+	margin: 0;
+	padding: 0;
+}
+
+.cv-log-panel > .alert {
+	margin: 16px;
+}
+
+@media (max-width: 840px) {
+	.post.cv-admin {
+		padding: 12px var(--cv-page-padding, 16px) 24px;
+	}
+
+	.cv-admin > .corvus-page-heading {
+		margin: -12px calc(-1 * var(--cv-page-padding, 16px)) 16px;
+		padding: 16px var(--cv-page-padding, 16px);
+	}
+
+	.cv-logs #loglist th:first-child {
+		width: 36px;
+	}
+
+	.cv-logs .log-level .cv-level {
+		display: none;
+	}
+
+	.cv-logs #loglist th:nth-child(2) {
+		width: 82px;
+	}
+
+	.cv-logs #loglist th,
+	.cv-logs #loglist td {
+		padding: 10px 8px;
+		font-size: 12px;
+	}
+}
+
+.cv-logs #loglist tr.log-error {
+	background: transparent;
+}
+
+.cv-logs #loglist tr.log-error:hover {
+	background: var(--cv-raised);
+}
+
+.cv-logs form[name="log_search"] .nav-pagination {
+	margin-inline-start: auto;
+	padding: 0;
+	border: 0;
+}
+
+/* Shared form geometry across display, reading, profile and extension settings. */
+.cv-admin .form-group:not(.form-actions) {
+	margin: 0 0 var(--cv-section-spacing, 20px);
+	display: grid;
+	grid-template-columns: minmax(140px, 200px) minmax(0, 1fr);
+	gap: 8px 24px;
+	align-items: start;
+}
+
+.cv-admin .form-group .group-name {
+	padding: 7px 0;
+	float: none;
+	width: auto;
+	text-align: start;
+	line-height: 20px;
+}
+
+.cv-admin .form-group .group-controls {
+	margin: 0;
+	padding: 0;
+	min-width: 0;
+}
+
+.cv-admin .form-group.form-actions .group-controls {
+	margin-inline-start: 224px;
+}
+
+.cv-logs .form-group.form-actions .group-controls {
+	margin-inline-start: 0;
+}
+
+@media (max-width: 840px) {
+	.cv-admin .form-group:not(.form-actions) {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 4px;
+	}
+
+	.cv-admin .form-group .group-name {
+		padding-block: 0;
+	}
+
+	.cv-admin .form-group.form-actions .group-controls {
+		margin-inline-start: 0;
+	}
+
+	.cv-logs #loglist th:first-child {
+		width: 42px;
+		white-space: normal;
+	}
+}
+
+/* Stable settings hooks shared with the optional Corvus Settings extension. */
+.flux_content .content > .text {
+	font-family: var(--cv-article-font, inherit);
+}
+
+
+.aside.aside_feed .tree-folder-title {
+	padding-block: 2px;
+	padding-inline: var(--cv-sidebar-padding, 12px);
+	display: flex;
+	min-height: var(--cv-sidebar-row, 32px);
+	font-size: var(--cv-sidebar-size, 13px);
+	box-sizing: border-box;
+	line-height: 20px;
+	align-items: center;
+	gap: 4px;
+}
+
+.aside.aside_feed .tree-folder-title > .title {
+	min-width: 0;
+	flex: 1;
+}
+
+.aside.aside_feed .tree-folder-title > button.dropdown-toggle {
+	margin: 0;
+	padding: 0;
+	display: inline-flex;
+	width: 16px;
+	min-height: 20px;
+	flex: 0 0 16px;
+	align-items: center;
+	justify-content: center;
+}
+
+.aside.aside_feed .tree-folder-title > button.dropdown-toggle .icon {
+	margin: 0;
+}
+
+.aside.aside_feed .feed .item-title {
+	padding-block: 2px;
+	padding-inline-start: var(--cv-sidebar-padding, 12px);
+	display: inline-flex;
+	width: auto;
+	min-width: 0;
+	font-size: inherit;
+	box-sizing: border-box;
+	align-items: center;
+	flex: 1;
+}
+
+/* Size the complete row, including its menu, rather than only the feed link.
+   Keep display specificity below native unread/hidden feed selectors. */
+
+.aside.aside_feed :where(.tree-folder-items > .feed.item) {
+	display: flex;
+}
+
+.aside.aside_feed .tree-folder-items > .feed.item {
+	padding-block: 0;
+	min-height: var(--cv-sidebar-row, 32px);
+	font-size: var(--cv-sidebar-size, 13px);
+	box-sizing: border-box;
+	line-height: 20px;
+	align-items: stretch;
+}
+
+.aside.aside_feed .feed > .dropdown > .dropdown-toggle {
+	padding-block: 0;
+	display: inline-flex;
+	height: 100%;
+	box-sizing: border-box;
+	align-items: center;
+}
+
+.aside.aside_feed .feed .item-title > .title {
+	width: auto;
+	min-width: 0;
+	flex: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.aside.aside_feed .feed .item-title > .favicon {
+	flex: 0 0 auto;
+}
+
+/* Native expansion estimates 4em per feed; custom heights can exceed that. */
+.aside.aside_feed .tree-folder-items.active {
+	max-height: none !important;
+}
+
+.flux_content.content_thin,
+.flux_content .content_thin {
+	max-width: var(--cv-reader-width, 650px);
+}
+
+.flux_content.content_medium,
+.flux_content .content_medium {
+	max-width: var(--cv-reader-width, 900px);
+}
+
+.flux_content.content_large,
+.flux_content .content_large {
+	max-width: var(--cv-reader-width, 1100px);
+}
+
+.flux_content.content_no_limit,
+.flux_content .content_no_limit {
+	max-width: var(--cv-reader-width, 100%);
+}
+
+.corvus-settings-form fieldset {
+	margin: 0 0 28px;
+	padding: 20px;
+	background: var(--cv-surface);
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+}
+
+.corvus-settings-form legend {
+	margin: 0;
+	padding: 0 8px;
+	width: auto;
+	font-size: 16px;
+	border: 0;
+}
+
+.corvus-settings-form .group-controls > span {
+	margin-top: 6px;
+	display: block;
+	color: var(--cv-subtle);
+	font-size: 12px;
+}
+
+@media (max-width: 840px) {
+	.corvus-settings-form fieldset {
+		padding: 12px;
+	}
+}
+
+/* The extension catalogue uses the same panel, toolbar and row system as logs. */
+.cv-extension-panel {
+	margin-block: 16px 24px;
+	background: var(--cv-surface);
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+.cv-extension-toolbar {
+	padding: 12px 16px;
+	display: flex;
+	border-bottom: 1px solid var(--cv-line);
+	align-items: center;
+	gap: 12px;
+}
+
+.cv-extensions .cv-extension-toolbar input {
+	margin: 0;
+	max-width: 100%;
+	width: 320px;
+	min-width: 0;
+}
+
+.cv-extension-count {
+	margin-inline-start: auto;
+	color: var(--cv-subtle);
+	font-size: 12px;
+	white-space: nowrap;
+	font-variant-numeric: tabular-nums;
+}
+
+.cv-extension-panel .table-wrapper {
+	margin: 0;
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) {
+	margin: 0;
+	width: 100%;
+	font-size: 13px;
+	border: 0;
+	border-collapse: collapse;
+}
+
+.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) th,
+.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) td {
+	padding: 12px 16px;
+	color: var(--cv-muted);
+	border: 0;
+	border-bottom: 1px solid var(--cv-line);
+	line-height: 1.6;
+	text-align: start;
+	vertical-align: middle;
+}
+
+.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) th {
+	padding-block: 10px;
+	color: var(--cv-fg);
+	font-size: 12px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) tbody tr:hover {
+	background: var(--cv-raised);
+}
+
+.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) tr[hidden] {
+	display: none;
+}
+
+.cv-extension-name {
+	min-width: 160px;
+	font-weight: 500;
+}
+
+.cv-extension-author {
+	max-width: 160px;
+	overflow-wrap: anywhere;
+}
+
+.cv-extension-description {
+	min-width: 220px;
+	overflow-wrap: anywhere;
+}
+
+.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) .alert {
+	margin: 4px 0 0;
+	padding: 2px 6px;
+	display: inline-block;
+	font-size: 11px;
+	border-radius: 2px;
+	line-height: 18px;
+}
+
+.cv-extensions .manage-list {
+	margin: 12px 0 24px;
+	padding: 0;
+	background: var(--cv-surface);
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+}
+
+.cv-extensions .manage-list > li {
+	margin: 0;
+	padding: 12px 16px;
+	display: flex;
+	min-height: 48px;
+	box-sizing: border-box;
+	border-bottom: 1px solid var(--cv-line);
+	align-items: center;
+	gap: 12px;
+	line-height: 20px;
+}
+
+.cv-extensions .manage-list > li:last-child {
+	border-bottom: 0;
+}
+
+.cv-extensions .manage-list .ext_name {
+	margin: 0;
+	font-size: 13px;
+}
+
+@media (max-width: 840px) {
+	.cv-extension-toolbar {
+		padding: 10px 12px;
+	}
+
+	.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) th,
+	.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) td {
+		padding: 10px 12px;
+	}
+}
+
+/* Optional Extension Manager: style its own controls; leave installation to it. */
+.cv-extensions .ext-mgr-btn {
+	padding: 5px 10px;
+	min-height: 32px;
+	font-family: inherit;
+	font-size: 12px;
+	border-radius: 3px;
+	box-sizing: border-box;
+	line-height: 20px;
+}
+
+.cv-extensions .ext-mgr-install,
+.cv-extensions .ext-mgr-queued {
+	background: #192b3b;
+	border-color: #305577;
+}
+
+.cv-extensions .ext-mgr-update {
+	background: #302b1b;
+	border-color: #75602e;
+}
+
+.cv-extensions .ext-mgr-switch {
+	background: #292335;
+	border-color: #65517d;
+}
+
+.cv-extensions .ext-mgr-installed-badge {
+	padding: 2px 6px;
+	background: #202d20;
+	color: #bcdda5;
+	font-size: 11px;
+	border: 1px solid #47633b;
+	border-radius: 2px;
+	font-weight: 400;
+	white-space: nowrap;
+}
+
+.cv-extensions .ext-mgr-add-repo {
+	margin: 0;
+	padding: 12px 16px;
+	border-bottom: 1px solid var(--cv-line);
+	flex-wrap: wrap;
+}
+
+.cv-extensions .ext-mgr-url-input {
+	opacity: 1;
+	border-color: var(--cv-line);
+}
+
+.cv-extensions .ext-mgr-trash {
+	padding: 6px;
+	display: inline-flex;
+	width: 30px;
+	height: 30px;
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	opacity: 1;
+	align-items: center;
+	justify-content: center;
+}
+
+.cv-extensions .ext-mgr-trash:hover {
+	background: #32201f;
+	border-color: #82423c;
+}
+
+/* Shortcut sections pair an action label with a compact editable key field. */
+.cv-shortcuts > form {
+	column-count: 2;
+	column-gap: 20px;
+}
+
+.cv-shortcuts fieldset {
+	margin: 0 0 20px;
+	padding: 18px 20px;
+	background: var(--cv-surface);
+	display: inline-block;
+	width: 100%;
+	border: 1px solid var(--cv-line);
+	border-radius: 4px;
+	box-sizing: border-box;
+	break-inside: avoid;
+	min-width: 0;
+}
+
+.cv-shortcuts fieldset > legend {
+	margin: 0 0 12px;
+	padding: 0 0 12px;
+	float: right;
+	width: 100%;
+	color: var(--cv-fg);
+	font-size: 14px;
+	border-bottom: 1px solid var(--cv-line);
+	font-weight: 600;
+	box-sizing: border-box;
+}
+
+.cv-shortcuts .form-group:not(.form-actions) {
+	margin: 0;
+	padding: 12px 0;
+	clear: both;
+	grid-template-columns: minmax(0, 1fr) 110px;
+	gap: 8px 16px;
+	align-items: center;
+	border-bottom: 1px solid var(--cv-line);
+}
+
+.cv-shortcuts .form-group .group-name {
+	padding: 0;
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.cv-shortcuts .form-group .group-controls {
+	overflow: visible;
+}
+
+.cv-shortcuts .form-group input[list="keys"] {
+	margin: 0;
+	max-width: 100%;
+	width: 100%;
+	height: 32px;
+	font-family: ui-monospace, monospace;
+	border-color: #54585c;
+	text-align: center;
+}
+
+.cv-shortcuts .form-group > .alert,
+.cv-shortcuts .form-group > .help {
+	margin: 0;
+	grid-column: 1 / -1;
+}
+
+.cv-shortcuts fieldset > .alert {
+	clear: both;
+	font-size: 12px;
+}
+
+.cv-shortcuts > form > .form-actions {
+	column-span: all;
+}
+
+/* Feed editor works as a full page or an asynchronously loaded side sheet. */
+#feed_update.cv-feed-editor {
+	padding: 24px var(--cv-page-padding, 28px);
+	background: var(--cv-bg);
+	font-size: 14px;
+}
+
+.cv-feed-heading {
+	margin-bottom: 20px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid var(--cv-line);
+}
+
+.cv-feed-heading h1 {
+	margin: 0 0 12px;
+	padding-inline-end: 32px;
+	font-size: 24px;
+	font-weight: 500;
+	letter-spacing: -0.03em;
+	line-height: 1.3;
+	overflow-wrap: anywhere;
+}
+
+.cv-feed-links {
+	display: flex;
+	color: var(--cv-subtle);
+	font-size: 12px;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.cv-feed-links a {
+	padding: 4px 8px;
+	display: inline-flex;
+	min-height: 28px;
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	align-items: center;
+	gap: 6px;
+	text-decoration: none;
+}
+
+.cv-feed-editor > form {
+	margin: 20px 0;
+}
+
+.cv-feed-editor fieldset,
+.cv-feed-tools {
+	margin: 0 0 20px;
+	padding: 20px;
+	background: var(--cv-surface);
+	min-width: 0;
+	border: 1px solid var(--cv-line);
+	border-radius: 4px;
+}
+
+.cv-feed-editor fieldset > legend {
+	margin: 0 0 20px;
+	padding: 0 0 12px;
+	float: right;
+	width: 100%;
+	color: var(--cv-fg);
+	font-size: 14px;
+	border-bottom: 1px solid var(--cv-line);
+	font-weight: 600;
+	box-sizing: border-box;
+}
+
+.cv-feed-editor fieldset > .form-group,
+.cv-feed-editor fieldset > .help {
+	clear: both;
+}
+
+.cv-feed-editor .form-group:not(.form-actions) {
+	margin: 0 0 var(--cv-section-spacing, 20px);
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 6px;
+}
+
+.cv-feed-editor .form-group .group-name {
+	padding: 0;
+	float: none;
+	width: auto;
+	color: var(--cv-fg);
+	font-size: 13px;
+	font-weight: 500;
+	text-align: start;
+	line-height: 20px;
+}
+
+.cv-feed-editor .form-group .group-controls {
+	margin: 0;
+	padding: 0;
+	min-width: 0;
+	overflow: visible;
+}
+
+.cv-feed-editor .group-controls > input:not([type="checkbox"], [type="radio"], [type="file"], [type="hidden"]),
+.cv-feed-editor .group-controls > select,
+.cv-feed-editor .group-controls > textarea,
+.cv-feed-editor .group-controls > .stick {
+	margin: 0;
+	max-width: 100%;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.cv-feed-editor .stick > input {
+	min-width: 0;
+	flex: 1;
+}
+
+.cv-feed-editor input:not([type="checkbox"], [type="radio"], [type="file"]),
+.cv-feed-editor select,
+.cv-feed-editor textarea {
+	padding: 6px 10px;
+	min-height: 32px;
+	font-size: 13px;
+	border-radius: 3px;
+	box-sizing: border-box;
+	line-height: 20px;
+}
+
+.cv-feed-editor .group-controls label:has(> input[type="checkbox"]) {
+	margin-top: 8px;
+	padding: 8px 0;
+	display: flex;
+	min-height: 32px;
+	color: var(--cv-muted);
+	font-size: 13px;
+	align-items: center;
+	gap: 12px;
+	line-height: 20px;
+	cursor: pointer;
+}
+
+.cv-feed-editor input[type="checkbox"] {
+	margin: 0;
+	padding: 2px;
+	background: var(--cv-hover);
+	width: 32px;
+	min-width: 32px;
+	height: 18px;
+	min-height: 18px;
+	border: 1px solid #54585c;
+	border-radius: 20px;
+	box-sizing: border-box;
+	appearance: none;
+	flex: 0 0 32px;
+	order: 2;
+	margin-inline-start: auto;
+	cursor: pointer;
+}
+
+.cv-feed-editor input[type="checkbox"]::before {
+	background: var(--cv-muted);
+	display: block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	content: '';
+}
+
+.cv-feed-editor input[type="checkbox"]:checked {
+	background: var(--cv-solid);
+	border-color: var(--cv-solid);
+}
+
+.cv-feed-editor input[type="checkbox"]:checked::before {
+	background: var(--cv-bg);
+	transform: translateX(-14px);
+}
+
+.cv-feed-editor input[type="checkbox"]:disabled {
+	opacity: 0.45;
+	cursor: not-allowed;
+}
+
+.cv-feed-editor input[type="radio"] {
+	accent-color: var(--cv-solid);
+}
+
+.cv-feed-editor .help,
+.cv-shortcuts .help {
+	margin: 6px 0 0;
+	color: var(--cv-subtle);
+	font-size: 12px;
+	line-height: 1.6;
+	overflow-wrap: anywhere;
+}
+
+.cv-feed-editor .help > .icon,
+.cv-shortcuts .help > .icon {
+	display: none;
+}
+
+.cv-feed-editor .cv-example {
+	padding: 10px 12px;
+	background: var(--cv-raised);
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+}
+
+.cv-example-label {
+	margin-bottom: 4px;
+	display: block;
+	color: var(--cv-muted);
+	font-size: 11px;
+	font-weight: 600;
+}
+
+.cv-feed-editor .help code {
+	margin-top: 6px;
+	padding: 6px 8px;
+	background: var(--cv-bg);
+	display: block;
+	color: #d3e7f8;
+	font-size: 12px;
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+}
+
+.cv-feed-tools h2 {
+	margin: 0 0 16px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.cv-feed-tools form {
+	margin: 0;
+}
+
+.cv-feed-editor .cv-feed-actions,
+.cv-shortcuts .form-group.form-actions {
+	margin: 0;
+	padding: 12px 16px;
+	background: var(--cv-surface);
+	min-width: 0;
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	backdrop-filter: none;
+	box-sizing: border-box;
+}
+
+.cv-feed-editor .cv-feed-actions .group-controls,
+.cv-shortcuts .form-actions .group-controls {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	min-width: 0;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.cv-feed-editor .btn,
+.cv-shortcuts .btn {
+	margin: 0;
+	padding: 5px 10px;
+	min-height: 32px;
+	font-size: 12px;
+	box-sizing: border-box;
+	line-height: 20px;
+}
+
+.cv-feed-actions button[formaction] {
+	margin-inline-end: auto;
+	background: transparent;
+	color: var(--cv-danger);
+	border-color: #82423c;
+	order: -1;
+	text-shadow: none;
+}
+
+#slider.active:target:has(.cv-feed-editor) {
+	width: min(620px, 100vw);
+	border-radius: 0;
+	box-shadow: 12px 0 40px #0005;
+}
+
+#slider:has(.cv-feed-editor) > .toggle_aside {
+	margin-inline-start: calc(100% - 44px);
+	margin-bottom: -44px;
+	padding: 0;
+	background: var(--cv-surface);
+	display: flex;
+	width: 32px;
+	height: 32px;
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	position: sticky;
+	top: 12px;
+	z-index: 110;
+	align-items: center;
+	justify-content: center;
+}
+
+#slider .cv-feed-editor {
+	padding: 24px 20px;
+}
+
+#slider .cv-feed-editor fieldset,
+#slider .cv-feed-tools {
+	padding: 16px;
+}
+
+@media (max-width: 1000px) {
+	.cv-shortcuts > form {
+		column-count: 1;
+	}
+}
+
+@media (max-width: 840px) {
+	#feed_update.cv-feed-editor {
+		padding: 20px 12px;
+	}
+
+	.cv-shortcuts fieldset {
+		padding: 16px;
+	}
+
+	.cv-shortcuts .form-group:not(.form-actions) {
+		grid-template-columns: minmax(0, 1fr) 90px;
+		gap: 8px;
+	}
+}
+
+.cv-feed-editor .form-group[hidden] {
+	display: none;
+}
+
+.cv-feed-tools input[name="reload_limit"] {
+	margin-inline-start: 8px;
+	max-width: 100%;
+	width: 80px;
+	vertical-align: middle;
+}
+
+.cv-feed-tools .btn-important {
+	background: transparent;
+	color: var(--cv-blue);
+	border-color: #305577;
+}
+
+.cv-section-actions {
+	padding-top: 12px;
+	border-top: 1px solid var(--cv-line);
+	clear: both;
+}
+
+.cv-feed-editor .form-group.cv-feed-actions .group-controls,
+.cv-shortcuts .form-group.form-actions .group-controls {
+	margin-inline-start: 0;
+}
+
+.cv-feed-editor .cv-feed-actions .group-controls .btn,
+.cv-shortcuts .form-actions .group-controls .btn {
+	margin: 0;
+}
+
+.cv-feed-editor .cv-feed-actions .group-controls .btn[formaction] {
+	margin-inline-end: auto;
+}
