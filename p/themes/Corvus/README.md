@@ -103,6 +103,12 @@ Clearing logs remains the existing explicit FreshRSS action.
 The CSS-only installation provides visual overrides; install the full theme or also enable User JS
 for the structural administration changes.
 
+## Article group headers
+
+Version 1.3.3 keeps the category label inside each date-group header, aligned to its
+trailing padding. Long names truncate without overlapping the date or next-group action,
+including on mobile and in right-to-left layouts.
+
 ## Subscription sidebar
 
 Version 1.3.1 keeps feed menu icons, favicons, names and unread badges on one row.
