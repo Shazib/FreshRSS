@@ -1224,13 +1224,51 @@ html:root .dropdown-menu {
 	gap: 4px;
 }
 
+.aside.aside_feed .tree-folder-title > .title {
+	min-width: 0;
+	flex: 1;
+}
+
+.aside.aside_feed .tree-folder-title > button.dropdown-toggle {
+	margin: 0;
+	padding: 0;
+	display: inline-flex;
+	width: 16px;
+	min-height: 20px;
+	flex: 0 0 16px;
+	align-items: center;
+	justify-content: center;
+}
+
+.aside.aside_feed .tree-folder-title > button.dropdown-toggle .icon {
+	margin: 0;
+}
+
 .aside.aside_feed .feed .item-title {
 	padding-inline-start: var(--cv-sidebar-padding, 12px);
-	display: flex;
+	display: inline-flex;
+	width: calc(100% - 2.5rem);
 	min-height: var(--cv-sidebar-row, 0px);
 	font-size: var(--cv-sidebar-size, 12px);
 	box-sizing: border-box;
 	align-items: center;
+}
+
+.aside.aside_feed .feed .item-title > .title {
+	width: auto;
+	min-width: 0;
+	flex: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.aside.aside_feed .feed .item-title > .favicon {
+	flex: 0 0 auto;
+}
+
+/* Native expansion estimates 4em per feed; custom heights can exceed that. */
+.aside.aside_feed .tree-folder-items.active {
+	max-height: none !important;
 }
 
 .flux_content.content_thin,

@@ -103,6 +103,13 @@ Clearing logs remains the existing explicit FreshRSS action.
 The CSS-only installation provides visual overrides; install the full theme or also enable User JS
 for the structural administration changes.
 
+## Subscription sidebar
+
+Version 1.3.1 keeps feed menu icons, favicons, names and unread badges on one row.
+Long feed and category names truncate within the sidebar. Expanded categories use their
+content height so large subscriptions and custom row heights cannot overlap the next category.
+Native collapse, unread filtering and feed menus remain available.
+
 ## Shortcuts and subscription forms
 
 Version 1.3 groups shortcuts into compact cards with aligned key fields and a shared action bar.
