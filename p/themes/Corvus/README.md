@@ -110,6 +110,10 @@ Long feed and category names truncate within the sidebar. Expanded categories us
 content height so large subscriptions and custom row heights cannot overlap the next category.
 Native collapse, unread filtering and feed menus remain available.
 
+Version 1.3.2 applies the configured minimum height to complete category and feed rows,
+including their menus. Consistent vertical padding and line heights keep compact 24-pixel
+rows aligned as well as taller rows. The theme default is 32 pixels for both row types.
+
 ## Shortcuts and subscription forms
 
 Version 1.3 groups shortcuts into compact cards with aligned key fields and a shared action bar.

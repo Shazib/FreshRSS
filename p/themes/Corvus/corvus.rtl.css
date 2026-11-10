@@ -1215,11 +1215,13 @@ html:root .dropdown-menu {
 
 
 .aside.aside_feed .tree-folder-title {
+	padding-block: 2px;
 	padding-inline: var(--cv-sidebar-padding, 12px);
 	display: flex;
-	min-height: var(--cv-sidebar-row, 0px);
+	min-height: var(--cv-sidebar-row, 32px);
 	font-size: var(--cv-sidebar-size, 13px);
 	box-sizing: border-box;
+	line-height: 20px;
 	align-items: center;
 	gap: 4px;
 }
@@ -1245,11 +1247,37 @@ html:root .dropdown-menu {
 }
 
 .aside.aside_feed .feed .item-title {
+	padding-block: 2px;
 	padding-inline-start: var(--cv-sidebar-padding, 12px);
 	display: inline-flex;
-	width: calc(100% - 2.5rem);
-	min-height: var(--cv-sidebar-row, 0px);
-	font-size: var(--cv-sidebar-size, 12px);
+	width: auto;
+	min-width: 0;
+	font-size: inherit;
+	box-sizing: border-box;
+	align-items: center;
+	flex: 1;
+}
+
+/* Size the complete row, including its menu, rather than only the feed link.
+   Keep display specificity below native unread/hidden feed selectors. */
+
+.aside.aside_feed :where(.tree-folder-items > .feed.item) {
+	display: flex;
+}
+
+.aside.aside_feed .tree-folder-items > .feed.item {
+	padding-block: 0;
+	min-height: var(--cv-sidebar-row, 32px);
+	font-size: var(--cv-sidebar-size, 13px);
+	box-sizing: border-box;
+	line-height: 20px;
+	align-items: stretch;
+}
+
+.aside.aside_feed .feed > .dropdown > .dropdown-toggle {
+	padding-block: 0;
+	display: inline-flex;
+	height: 100%;
 	box-sizing: border-box;
 	align-items: center;
 }
