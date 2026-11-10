@@ -159,11 +159,94 @@
 		update();
 	}
 
+	let helpSequence = 0;
+	function clarifyHelp(root) {
+		for (const help of root.querySelectorAll('.help')) {
+			if (!help.id) help.id = 'cv-field-help-' + (++helpSequence);
+			const control = help.closest('.form-group')?.querySelector('input:not([type="hidden"]), select, textarea');
+			if (control) {
+				const ids = new Set((control.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean));
+				ids.add(help.id);
+				control.setAttribute('aria-describedby', [...ids].join(' '));
+			}
+			if (help.querySelector('code') && !help.classList.contains('cv-example')) {
+				help.classList.add('cv-example');
+				const label = document.createElement('span');
+				label.className = 'cv-example-label';
+				label.textContent = 'Example — reference only';
+				help.prepend(label);
+			}
+		}
+	}
+
+	function decorateForms() {
+		document.querySelector('.aside.nav-list > ul > .nav-section:first-child a')?.classList.add('cv-back');
+		const shortcuts = document.querySelector('input[name="shortcuts[normal_view]"]')?.closest('main');
+		if (shortcuts && !shortcuts.classList.contains('cv-shortcuts')) {
+			shortcuts.classList.add('cv-shortcuts');
+			for (const row of shortcuts.querySelectorAll('.form-group')) {
+				for (const help of row.querySelectorAll('.group-controls > .help')) row.append(help);
+			}
+			clarifyHelp(shortcuts);
+		}
+		for (const editor of document.querySelectorAll('#feed_update')) {
+			if (editor.classList.contains('cv-feed-editor')) continue;
+			editor.classList.add('cv-feed-editor', 'cv-admin');
+			const title = editor.querySelector(':scope > h1');
+			if (title) {
+				const links = title.nextElementSibling;
+				const heading = document.createElement('header');
+				heading.className = 'cv-feed-heading';
+				title.before(heading);
+				heading.append(title);
+				if (links?.tagName === 'DIV') {
+					links.classList.add('cv-feed-links');
+					heading.append(links);
+				}
+			}
+			const form = editor.querySelector(':scope > form');
+			if (form) {
+				const groups = [...form.querySelectorAll('.form-actions')];
+				const actions = groups[0];
+				if (actions) {
+					const submitText = actions.querySelector('button[type="submit"]')?.textContent.trim();
+					const resetText = actions.querySelector('button[type="reset"]')?.textContent.trim();
+					for (const duplicate of groups.slice(1)) {
+						if (duplicate.querySelector('input, select, textarea, a')) continue;
+						for (const button of [...duplicate.querySelectorAll('button')]) {
+							if (!button.name && !button.hasAttribute('formaction') &&
+								((button.type === 'submit' && button.textContent.trim() === submitText) ||
+								(button.type === 'reset' && button.textContent.trim() === resetText))) button.remove();
+						}
+						if (!duplicate.querySelector('button')) duplicate.remove();
+						else {
+							duplicate.classList.remove('form-group', 'form-actions');
+							duplicate.classList.add('cv-section-actions');
+						}
+					}
+					actions.classList.add('cv-feed-actions');
+					form.append(actions);
+				}
+			}
+			for (const title of [...editor.querySelectorAll(':scope > h2')]) {
+				const group = title.nextElementSibling;
+				if (!group?.classList.contains('form-group')) continue;
+				const section = document.createElement('section');
+				section.className = 'cv-feed-tools';
+				title.before(section);
+				section.append(title, group);
+			}
+			clarifyHelp(editor);
+		}
+	}
+
 	function initialise() {
 		decorate();
 		decorateAdmin();
 		decorateLogs();
 		decorateExtensions();
+		decorateForms();
+		document.addEventListener('freshrss:slider-load', decorateForms, true);
 	}
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', initialise, { once: true });

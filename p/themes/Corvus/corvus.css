@@ -1485,3 +1485,448 @@ html:root .dropdown-menu {
 	background: #32201f;
 	border-color: #82423c;
 }
+
+/* Shortcut sections pair an action label with a compact editable key field. */
+.cv-shortcuts > form {
+	column-count: 2;
+	column-gap: 20px;
+}
+
+.cv-shortcuts fieldset {
+	margin: 0 0 20px;
+	padding: 18px 20px;
+	background: var(--cv-surface);
+	display: inline-block;
+	width: 100%;
+	border: 1px solid var(--cv-line);
+	border-radius: 4px;
+	box-sizing: border-box;
+	break-inside: avoid;
+	min-width: 0;
+}
+
+.cv-shortcuts fieldset > legend {
+	margin: 0 0 12px;
+	padding: 0 0 12px;
+	float: left;
+	width: 100%;
+	color: var(--cv-fg);
+	font-size: 14px;
+	border-bottom: 1px solid var(--cv-line);
+	font-weight: 600;
+	box-sizing: border-box;
+}
+
+.cv-shortcuts .form-group:not(.form-actions) {
+	margin: 0;
+	padding: 12px 0;
+	clear: both;
+	grid-template-columns: minmax(0, 1fr) 110px;
+	gap: 8px 16px;
+	align-items: center;
+	border-bottom: 1px solid var(--cv-line);
+}
+
+.cv-shortcuts .form-group .group-name {
+	padding: 0;
+	font-size: 13px;
+	font-weight: 500;
+}
+
+.cv-shortcuts .form-group .group-controls {
+	overflow: visible;
+}
+
+.cv-shortcuts .form-group input[list="keys"] {
+	margin: 0;
+	max-width: 100%;
+	width: 100%;
+	height: 32px;
+	font-family: ui-monospace, monospace;
+	border-color: #54585c;
+	text-align: center;
+}
+
+.cv-shortcuts .form-group > .alert,
+.cv-shortcuts .form-group > .help {
+	margin: 0;
+	grid-column: 1 / -1;
+}
+
+.cv-shortcuts fieldset > .alert {
+	clear: both;
+	font-size: 12px;
+}
+
+.cv-shortcuts > form > .form-actions {
+	column-span: all;
+}
+
+/* Feed editor works as a full page or an asynchronously loaded side sheet. */
+#feed_update.cv-feed-editor {
+	padding: 24px var(--cv-page-padding, 28px);
+	background: var(--cv-bg);
+	font-size: 14px;
+}
+
+.cv-feed-heading {
+	margin-bottom: 20px;
+	padding-bottom: 16px;
+	border-bottom: 1px solid var(--cv-line);
+}
+
+.cv-feed-heading h1 {
+	margin: 0 0 12px;
+	padding-inline-end: 32px;
+	font-size: 24px;
+	font-weight: 500;
+	letter-spacing: -0.03em;
+	line-height: 1.3;
+	overflow-wrap: anywhere;
+}
+
+.cv-feed-links {
+	display: flex;
+	color: var(--cv-subtle);
+	font-size: 12px;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.cv-feed-links a {
+	padding: 4px 8px;
+	display: inline-flex;
+	min-height: 28px;
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	align-items: center;
+	gap: 6px;
+	text-decoration: none;
+}
+
+.cv-feed-editor > form {
+	margin: 20px 0;
+}
+
+.cv-feed-editor fieldset,
+.cv-feed-tools {
+	margin: 0 0 20px;
+	padding: 20px;
+	background: var(--cv-surface);
+	min-width: 0;
+	border: 1px solid var(--cv-line);
+	border-radius: 4px;
+}
+
+.cv-feed-editor fieldset > legend {
+	margin: 0 0 20px;
+	padding: 0 0 12px;
+	float: left;
+	width: 100%;
+	color: var(--cv-fg);
+	font-size: 14px;
+	border-bottom: 1px solid var(--cv-line);
+	font-weight: 600;
+	box-sizing: border-box;
+}
+
+.cv-feed-editor fieldset > .form-group,
+.cv-feed-editor fieldset > .help {
+	clear: both;
+}
+
+.cv-feed-editor .form-group:not(.form-actions) {
+	margin: 0 0 var(--cv-section-spacing, 20px);
+	display: grid;
+	grid-template-columns: minmax(0, 1fr);
+	gap: 6px;
+}
+
+.cv-feed-editor .form-group .group-name {
+	padding: 0;
+	float: none;
+	width: auto;
+	color: var(--cv-fg);
+	font-size: 13px;
+	font-weight: 500;
+	text-align: start;
+	line-height: 20px;
+}
+
+.cv-feed-editor .form-group .group-controls {
+	margin: 0;
+	padding: 0;
+	min-width: 0;
+	overflow: visible;
+}
+
+.cv-feed-editor .group-controls > input:not([type="checkbox"], [type="radio"], [type="file"], [type="hidden"]),
+.cv-feed-editor .group-controls > select,
+.cv-feed-editor .group-controls > textarea,
+.cv-feed-editor .group-controls > .stick {
+	margin: 0;
+	max-width: 100%;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.cv-feed-editor .stick > input {
+	min-width: 0;
+	flex: 1;
+}
+
+.cv-feed-editor input:not([type="checkbox"], [type="radio"], [type="file"]),
+.cv-feed-editor select,
+.cv-feed-editor textarea {
+	padding: 6px 10px;
+	min-height: 32px;
+	font-size: 13px;
+	border-radius: 3px;
+	box-sizing: border-box;
+	line-height: 20px;
+}
+
+.cv-feed-editor .group-controls label:has(> input[type="checkbox"]) {
+	margin-top: 8px;
+	padding: 8px 0;
+	display: flex;
+	min-height: 32px;
+	color: var(--cv-muted);
+	font-size: 13px;
+	align-items: center;
+	gap: 12px;
+	line-height: 20px;
+	cursor: pointer;
+}
+
+.cv-feed-editor input[type="checkbox"] {
+	margin: 0;
+	padding: 2px;
+	background: var(--cv-hover);
+	width: 32px;
+	min-width: 32px;
+	height: 18px;
+	min-height: 18px;
+	border: 1px solid #54585c;
+	border-radius: 20px;
+	box-sizing: border-box;
+	appearance: none;
+	flex: 0 0 32px;
+	order: 2;
+	margin-inline-start: auto;
+	cursor: pointer;
+}
+
+.cv-feed-editor input[type="checkbox"]::before {
+	background: var(--cv-muted);
+	display: block;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+	content: '';
+}
+
+.cv-feed-editor input[type="checkbox"]:checked {
+	background: var(--cv-solid);
+	border-color: var(--cv-solid);
+}
+
+.cv-feed-editor input[type="checkbox"]:checked::before {
+	background: var(--cv-bg);
+	transform: translateX(14px);
+}
+
+.cv-feed-editor input[type="checkbox"]:disabled {
+	opacity: 0.45;
+	cursor: not-allowed;
+}
+
+.cv-feed-editor input[type="radio"] {
+	accent-color: var(--cv-solid);
+}
+
+.cv-feed-editor .help,
+.cv-shortcuts .help {
+	margin: 6px 0 0;
+	color: var(--cv-subtle);
+	font-size: 12px;
+	line-height: 1.6;
+	overflow-wrap: anywhere;
+}
+
+.cv-feed-editor .help > .icon,
+.cv-shortcuts .help > .icon {
+	display: none;
+}
+
+.cv-feed-editor .cv-example {
+	padding: 10px 12px;
+	background: var(--cv-raised);
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+}
+
+.cv-example-label {
+	margin-bottom: 4px;
+	display: block;
+	color: var(--cv-muted);
+	font-size: 11px;
+	font-weight: 600;
+}
+
+.cv-feed-editor .help code {
+	margin-top: 6px;
+	padding: 6px 8px;
+	background: var(--cv-bg);
+	display: block;
+	color: #d3e7f8;
+	font-size: 12px;
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	white-space: pre-wrap;
+	overflow-wrap: anywhere;
+}
+
+.cv-feed-tools h2 {
+	margin: 0 0 16px;
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.cv-feed-tools form {
+	margin: 0;
+}
+
+.cv-feed-editor .cv-feed-actions,
+.cv-shortcuts .form-group.form-actions {
+	margin: 0;
+	padding: 12px 16px;
+	background: var(--cv-surface);
+	min-width: 0;
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	backdrop-filter: none;
+	box-sizing: border-box;
+}
+
+.cv-feed-editor .cv-feed-actions .group-controls,
+.cv-shortcuts .form-actions .group-controls {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	min-width: 0;
+	align-items: center;
+	justify-content: flex-end;
+	gap: 8px;
+	flex-wrap: wrap;
+}
+
+.cv-feed-editor .btn,
+.cv-shortcuts .btn {
+	margin: 0;
+	padding: 5px 10px;
+	min-height: 32px;
+	font-size: 12px;
+	box-sizing: border-box;
+	line-height: 20px;
+}
+
+.cv-feed-actions button[formaction] {
+	margin-inline-end: auto;
+	background: transparent;
+	color: var(--cv-danger);
+	border-color: #82423c;
+	order: -1;
+	text-shadow: none;
+}
+
+#slider.active:target:has(.cv-feed-editor) {
+	width: min(620px, 100vw);
+	border-radius: 0;
+	box-shadow: -12px 0 40px #0005;
+}
+
+#slider:has(.cv-feed-editor) > .toggle_aside {
+	margin-inline-start: calc(100% - 44px);
+	margin-bottom: -44px;
+	padding: 0;
+	background: var(--cv-surface);
+	display: flex;
+	width: 32px;
+	height: 32px;
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	position: sticky;
+	top: 12px;
+	z-index: 110;
+	align-items: center;
+	justify-content: center;
+}
+
+#slider .cv-feed-editor {
+	padding: 24px 20px;
+}
+
+#slider .cv-feed-editor fieldset,
+#slider .cv-feed-tools {
+	padding: 16px;
+}
+
+@media (max-width: 1000px) {
+	.cv-shortcuts > form {
+		column-count: 1;
+	}
+}
+
+@media (max-width: 840px) {
+	#feed_update.cv-feed-editor {
+		padding: 20px 12px;
+	}
+
+	.cv-shortcuts fieldset {
+		padding: 16px;
+	}
+
+	.cv-shortcuts .form-group:not(.form-actions) {
+		grid-template-columns: minmax(0, 1fr) 90px;
+		gap: 8px;
+	}
+}
+
+.cv-feed-editor .form-group[hidden] {
+	display: none;
+}
+
+.cv-feed-tools input[name="reload_limit"] {
+	margin-inline-start: 8px;
+	max-width: 100%;
+	width: 80px;
+	vertical-align: middle;
+}
+
+.cv-feed-tools .btn-important {
+	background: transparent;
+	color: var(--cv-blue);
+	border-color: #305577;
+}
+
+.cv-section-actions {
+	padding-top: 12px;
+	border-top: 1px solid var(--cv-line);
+	clear: both;
+}
+
+.cv-feed-editor .form-group.cv-feed-actions .group-controls,
+.cv-shortcuts .form-group.form-actions .group-controls {
+	margin-inline-start: 0;
+}
+
+.cv-feed-editor .cv-feed-actions .group-controls .btn,
+.cv-shortcuts .form-actions .group-controls .btn {
+	margin: 0;
+}
+
+.cv-feed-editor .cv-feed-actions .group-controls .btn[formaction] {
+	margin-inline-end: auto;
+}

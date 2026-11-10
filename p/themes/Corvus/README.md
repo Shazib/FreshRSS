@@ -103,6 +103,19 @@ Clearing logs remains the existing explicit FreshRSS action.
 The CSS-only installation provides visual overrides; install the full theme or also enable User JS
 for the structural administration changes.
 
+## Shortcuts and subscription forms
+
+Version 1.3 groups shortcuts into compact cards with aligned key fields and a shared action bar.
+Subscription editing uses a 620-pixel side drawer on desktop and the available width on mobile.
+The full-page editor shares the same section cards, labels above fields, switches, consistent
+spacing and clearly labelled reference examples. Maintenance and destructive actions stay separate.
+
+A single sticky Submit/Cancel/Remove bar replaces repeated generic action blocks. Native form
+submission, reset, keyboard interaction, validation, CSRF fields and removal confirmation remain
+in use. Help text is associated with its field for assistive technology. The theme JavaScript
+also handles forms loaded through FreshRSS's existing drawer events; update the whole theme,
+including `corvus.js`, to get these structural changes.
+
 ## Extension catalogue and installation
 
 Version 1.2.1 gives the community catalogue the same panel, toolbar and table styling as the logs
