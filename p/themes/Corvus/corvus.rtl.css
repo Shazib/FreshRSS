@@ -722,3 +722,106 @@ html:root .dropdown-menu {
 		padding-inline: 6px;
 	}
 }
+
+/* Use one baseline and spacing rhythm for feed, author and date metadata. */
+.flux_content .content > header .subtitle,
+.flux_content .content > footer .subtitle {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 6px 12px;
+	line-height: 20px;
+}
+
+.flux_content .content .subtitle.horizontal-list > .item {
+	padding: 0;
+	width: auto;
+	min-width: 0;
+	align-self: center;
+	flex: 0 1 auto;
+	text-align: start;
+}
+
+.flux_content .content .subtitle > div::before {
+	content: none;
+}
+
+.flux_content .content .subtitle .website,
+.flux_content .content .subtitle a.website,
+.flux_content .content .subtitle .website > a {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	vertical-align: middle;
+}
+
+.flux_content .content .subtitle .website .favicon {
+	margin: 0;
+	width: 16px;
+	height: 16px;
+	flex: 0 0 16px;
+	vertical-align: middle;
+}
+
+/* Keep the footer legible and aligned even with most article actions disabled. */
+.reader .flux_content > footer,
+.normal .flux_content > footer {
+	padding: 10px clamp(18px, 4vw, 56px);
+}
+
+.flux_content > footer .horizontal-list.bottom {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	flex-wrap: wrap;
+	gap: 8px 12px;
+	min-height: 28px;
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.flux_content > footer .bottom > .item {
+	width: auto;
+	flex: 0 1 auto;
+	align-self: center;
+}
+
+.flux_content > footer .bottom > .item:empty {
+	display: none;
+}
+
+.flux_content > footer .bottom .item.date {
+	font-size: 12px;
+}
+
+.flux_content > footer .bottom > .item > a,
+.flux_content > footer .bottom .item-element {
+	padding: 0;
+	display: inline-flex;
+	min-height: 28px;
+	align-items: center;
+	gap: 6px;
+}
+
+/* Feed HTML often puts an image and its description in the same paragraph. */
+.flux_content .content .text img {
+	margin-block: 0 1em;
+	display: block;
+	float: none;
+	clear: both;
+}
+
+.flux_content .content .text picture,
+.flux_content .content .text a:has(> img),
+.flux_content .content .text a:has(> picture) {
+	display: block;
+}
+
+.flux_content .content .subtitle.horizontal-list > .item:not(.manage):not(.date):not(.link) {
+	display: flex;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 6px 8px;
+}
