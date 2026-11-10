@@ -1,0 +1,13 @@
+{
+	"name": "Corvus",
+	"author": "Shazib",
+	"description": "Corvus AWPG-inspired dark workspace with compact article rows and a spacious reader.",
+	"version": "1.0.0",
+	"files": [
+		"_frss.css",
+		"../Origine/origine.css",
+		"corvus.css",
+		"corvus.js"
+	],
+	"theme-color": "#151515"
+}

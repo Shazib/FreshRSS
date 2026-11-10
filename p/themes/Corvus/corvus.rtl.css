@@ -1,0 +1,656 @@
+@charset "UTF-8";
+
+/* Corvus AWPG-inspired styling. Also usable as User CSS with Origine selected.
+ * Intentionally dark, like Nord / Alternative Dark; independent of OS mode.
+ * Double :root specificity takes precedence over Origine's automatic palette.
+ */
+
+:root:root {
+	--cv-bg: #151515;
+	--cv-surface: #1b1d21;
+	--cv-raised: #212427;
+	--cv-hover: #2d3034;
+	--cv-line: #3c3f42;
+	--cv-fg: #f0f0f0;
+	--cv-muted: #b8bbbe;
+	--cv-subtle: #8f9397;
+	--cv-blue: #4dabf7;
+	--cv-solid: #2b9af3;
+	--cv-good: #87bb62;
+	--cv-warn: #f6be00;
+	--cv-danger: #ff7468;
+	--width-aside: 240px;
+	--frss-padding-top-bottom: 0.5rem;
+	--frss-padding-flux-items: 0.65rem;
+	--frss-font-color-dark: var(--cv-fg);
+	--frss-font-color-grey-dark: var(--cv-muted);
+	--frss-font-color-grey-light: var(--cv-subtle);
+	--frss-font-color-light: var(--cv-fg);
+	--frss-font-color-disabled: var(--cv-subtle);
+	--frss-font-color-error: var(--cv-danger);
+	--frss-background-color: var(--cv-surface);
+	--frss-background-color-transparent: #1b1d21eb;
+	--frss-background-color-middle: var(--cv-raised);
+	--frss-background-color-dark: var(--cv-hover);
+	--frss-border-color: var(--cv-line);
+	--frss-border-color-error: var(--cv-danger);
+	--frss-switch-accent-color: var(--cv-solid);
+	--frss-modal-background-color-transparent: #0009;
+	--frss-scrollbar-handle: #54585c;
+	--frss-scrollbar-handle-hover: #8f9397;
+	--frss-scrollbar-track: transparent;
+	--frss-scrollbar-track-hover: transparent;
+	--frss-noThumbnailImage-background-color: var(--cv-hover);
+	--background-color-light-gradient1: var(--cv-surface);
+	--background-color-light-gradient2: var(--cv-surface);
+	--background-color-light: var(--cv-surface);
+	--background-color-light-shadowed: var(--cv-raised);
+	--background-color-light-shadowed-transparent: #212427eb;
+	--background-color-grey: var(--cv-raised);
+	--background-color-hover: var(--cv-hover);
+	--unread-article-background-color: var(--cv-surface);
+	--unread-article-background-color-hover: var(--cv-raised);
+	--unread-article-border-color: var(--cv-solid);
+	--favorite-article-background-color: var(--cv-surface);
+	--favorite-article-background-color-hover: var(--cv-raised);
+	--favorite-article-border-color: var(--cv-warn);
+	--contrast-background-color: var(--cv-solid);
+	--contrast-background-color-gradient: var(--cv-solid);
+	--contrast-background-color-hover: var(--cv-blue);
+	--contrast-background-color-active: var(--cv-solid);
+	--contrast-border-color: var(--cv-solid);
+	--contrast-border-color-active: var(--cv-solid);
+	--contrast-background-font-color: var(--cv-bg);
+	--attention-background-color-gradient1: #a32920;
+	--attention-background-color-gradient2: #a32920;
+	--attention-background-color-gradient1-hover: #bc352a;
+	--attention-background-color-gradient2-hover: #bc352a;
+	--attention-background-color-active: #a32920;
+	--attention-border-color: var(--cv-danger);
+	--empty-feed-color: var(--cv-subtle);
+	--error-feed-color: var(--cv-danger);
+	--font-color: var(--cv-fg);
+	--font-color-grey: var(--cv-muted);
+	--font-color-light-shadowed: var(--cv-subtle);
+	--font-color-light: var(--cv-fg);
+	--font-color-link: var(--cv-blue);
+	--font-color-link-hover: #8dccff;
+	--border-color: var(--cv-line);
+	--border-color-shadow-side: var(--cv-line);
+	--box-shadow-color: transparent;
+	--box-shadow-color-inset: transparent;
+	--text-shadow-color: transparent;
+	--text-shadow-color-dark: transparent;
+	--form-element-font-color-focus: var(--cv-fg);
+	--form-element-border-color-focus: var(--cv-blue);
+	--form-element-focus-box-shadow-color-inset: transparent;
+	--form-element-border-color-invalid: var(--cv-danger);
+	--form-element-invalid-box-shadow-color-inset: transparent;
+	--alert-warn-background-color: #302b1b;
+	--alert-warn-font-color: #f6d980;
+	--alert-warn-border-color: #75602e;
+	--alert-info-background-color: #192b3b;
+	--alert-info-font-color: #b8ddfa;
+	--alert-info-border-color: #305577;
+	--alert-success-background-color: #202d20;
+	--alert-success-font-color: #bcdda5;
+	--alert-success-border-color: #47633b;
+	--alert-error-background-color: #32201f;
+	--alert-error-font-color: #ffb0a8;
+	--alert-error-border-color: #82423c;
+	--notification-good-background-color: var(--cv-raised);
+	--notification-good-border-color: #47633b;
+	--notification-good-font-color: #bcdda5;
+	--notification-bad-background-color: #32201f;
+	--notification-bad-border-color: #82423c;
+	--notification-bad-font-color: #ffb0a8;
+	color-scheme: dark;
+}
+
+html, body {
+	background: var(--cv-bg);
+	color: var(--cv-fg);
+	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+	font-size: 14px;
+}
+
+::selection {
+	background: #2b9af34d;
+}
+
+a:focus-visible, button:focus-visible, input:focus-visible,
+select:focus-visible, textarea:focus-visible, summary:focus-visible {
+	outline: 2px solid var(--cv-blue);
+	outline-offset: 3px;
+}
+
+/* Dark masthead and compact, permanently dark navigation. */
+.header {
+	background: var(--cv-bg);
+	height: 56px;
+}
+
+.header > .item.title {
+	width: var(--width-aside);
+	text-align: right;
+}
+
+.header > .item.title .logo {
+	height: 26px;
+	filter: grayscale(1) brightness(2);
+}
+
+.header > .item.search input {
+	max-width: 100%;
+	width: 360px;
+}
+
+#global {
+	background: var(--cv-bg);
+}
+
+.aside, .aside.aside_feed {
+	background: var(--cv-raised);
+	color: var(--cv-muted);
+	border-color: var(--cv-line);
+}
+
+.aside .tree-folder-title,
+.aside .tree-folder-items {
+	background: transparent;
+	border-color: var(--cv-line);
+}
+
+.aside .tree-folder-title {
+	padding-block: 3px;
+	font-size: 13px;
+}
+
+.aside .tree-folder-title .title,
+.aside .tree-folder-items > .item > a,
+.aside.nav-list .item a {
+	color: var(--cv-muted);
+}
+
+.aside .tree-folder.active .tree-folder-title,
+.aside .tree-folder-items > .item.active,
+.aside.nav-list .item.active {
+	background: #2f3338;
+	box-shadow: inset -3px 0 var(--cv-solid);
+}
+
+.aside .tree-folder.active .tree-folder-title .title,
+.aside .tree-folder-items > .item.active > a,
+.aside.nav-list .item.active a {
+	color: var(--cv-fg);
+}
+
+.aside .tree-folder-items > .item {
+	padding-block: 3px;
+	font-size: 12px;
+}
+
+.aside .tree-folder-title:hover,
+.aside .tree-folder-items > .item:hover {
+	background: #2a2d31;
+}
+
+.aside.aside_feed .category .title:not([data-unread="0"])::after,
+.aside.aside_feed .feed .item-title:not([data-unread="0"])::after {
+	background: var(--cv-hover);
+	color: var(--cv-muted);
+	border: 1px solid #54585c;
+	border-radius: 2px;
+}
+
+:root:root .nav_menu {
+	padding-block: 8px;
+	background: var(--cv-surface);
+	border-color: var(--cv-line);
+}
+
+.nav_menu .btn, .nav_menu .stick, .nav_menu .group {
+	margin-inline: 4px;
+}
+
+/* Shared controls also cover configuration pages and feed-edit drawers. */
+.btn, input, select, textarea {
+	background: var(--cv-surface);
+	color: var(--cv-fg);
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	box-shadow: none;
+	text-shadow: none;
+}
+
+.btn {
+	padding: 6px 12px;
+	font-size: 13px;
+}
+
+:root:root .nav_menu .btn {
+	color: var(--cv-muted);
+}
+
+.btn:hover, :root:root .nav_menu .btn:hover {
+	background: var(--cv-hover);
+	color: var(--cv-fg);
+	border-color: #54585c;
+}
+
+.btn.btn-important, .btn.active, :root:root .nav_menu .btn.active {
+	background: var(--cv-solid);
+	color: var(--cv-bg);
+	border-color: var(--cv-solid);
+	box-shadow: none;
+}
+
+.dropdown-menu, .box, #slider, .post {
+	background: var(--cv-surface);
+	color: var(--cv-fg);
+	border-color: var(--cv-line);
+	border-radius: 3px;
+	box-shadow: none;
+}
+
+html:root .dropdown-menu {
+	background: var(--cv-surface);
+}
+
+.dropdown-menu a:hover, .dropdown-menu .as-link:hover {
+	background: var(--cv-hover);
+}
+
+.icon {
+	filter: grayscale(1) brightness(1.7);
+	opacity: 0.85;
+}
+
+.bookmark .icon {
+	filter: none;
+	opacity: 1;
+}
+
+/* Bordered rows echo Corvus's proxy-host table; preserve every native action. */
+#stream.normal, #stream.reader, #stream.global {
+	padding: 20px 28px 60px;
+	background: var(--cv-bg);
+	box-sizing: border-box;
+}
+
+#stream.normal .transition {
+	line-height: 1.5;
+	padding: 12px 16px;
+	background: var(--cv-surface);
+	color: var(--cv-subtle);
+	font-size: 12px;
+	border: 1px solid var(--cv-line);
+	border-bottom: 0;
+	font-weight: 500;
+}
+
+.transition .name {
+	color: var(--cv-muted);
+	font-size: 14px;
+	opacity: 1;
+	text-shadow: none;
+	font-style: normal;
+}
+
+#stream.normal > .flux {
+	background: var(--cv-surface);
+	border: 1px solid var(--cv-line);
+	border-bottom: 0;
+	border-inline-start: 3px solid transparent;
+}
+
+#stream.normal > .flux:last-of-type {
+	border-bottom: 1px solid var(--cv-line);
+}
+
+#stream.normal > .flux.not_read,
+#stream.normal > .flux.current {
+	border-inline-start-color: var(--cv-solid);
+}
+
+#stream.normal > .flux.favorite {
+	border-inline-start-color: var(--cv-warn);
+}
+
+#stream.normal .flux > .flux_header {
+	margin: 0;
+	padding: 4px 10px;
+	background: var(--cv-surface);
+	min-height: 48px;
+	font-size: 13px;
+	border: 0;
+	box-sizing: border-box;
+}
+
+#stream.normal .flux > .flux_header:hover,
+#stream.normal .flux.current > .flux_header,
+#stream.normal .flux.active > .flux_header {
+	background: var(--cv-raised);
+}
+
+.flux .flux_header .item.website {
+	width: 160px;
+	color: var(--cv-muted);
+	font-size: 12px;
+}
+
+.flux .flux_header.websiteicon .item.website {
+	width: 36px;
+}
+
+.flux .flux_header .item .title {
+	color: var(--cv-muted);
+	font-weight: 400;
+}
+
+.flux.not_read .flux_header .item .title,
+.flux.current .flux_header .item .title {
+	color: var(--cv-fg);
+	font-weight: 600;
+}
+
+.flux .flux_header .item .summary,
+.flux .flux_header .item .date {
+	color: var(--cv-subtle);
+	font-size: 12px;
+}
+
+/* The same reading surface serves expanded normal-view articles and reader view. */
+#stream.normal .flux_content {
+	padding: 32px 0 0;
+	background: var(--cv-surface);
+	border-top: 1px solid var(--cv-line);
+}
+
+#stream.reader .flux {
+	padding: 0 0 28px;
+	background: transparent;
+	border: 0;
+}
+
+#stream.reader .flux .flux_content {
+	padding: 36px 0 0;
+	background: var(--cv-surface);
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+}
+
+#stream.reader .flux.current .flux_content {
+	border-color: #54585c;
+}
+
+.flux_content .content {
+	color: var(--cv-muted);
+	font-size: 17px;
+	line-height: 1.8;
+}
+
+.flux_content .content > header,
+.flux_content .content > .text,
+.flux_content .content > footer {
+	padding-inline: clamp(20px, 4vw, 56px);
+}
+
+.flux_content .content > header {
+	padding-top: 0;
+	padding-bottom: 24px;
+	font-size: 13px;
+}
+
+.flux_content .content h1.title {
+	margin: 16px 0;
+	color: var(--cv-fg);
+	font-size: clamp(24px, 2.4vw, 34px);
+	font-weight: 600;
+	letter-spacing: -0.035em;
+	line-height: 1.25;
+	text-wrap: balance;
+}
+
+.flux_content .content h1.title a {
+	color: var(--cv-fg);
+}
+
+.flux_content .content .subtitle,
+.flux_content .content > footer {
+	color: var(--cv-subtle);
+	font-size: 12px;
+}
+
+.flux_content .content .text p {
+	margin: 0 0 1.35em;
+}
+
+.flux_content .content .text h2,
+.flux_content .content .text h3,
+.flux_content .content .text h4 {
+	margin: 1.6em 0 0.6em;
+	color: var(--cv-fg);
+	font-weight: 600;
+	letter-spacing: -0.02em;
+	line-height: 1.35;
+}
+
+.flux_content .content .text a {
+	text-decoration: underline;
+	text-decoration-color: #4dabf777;
+	text-underline-offset: 3px;
+}
+
+.flux_content .content .text blockquote {
+	margin: 24px 0;
+	padding: 12px 20px;
+	background: var(--cv-raised);
+	color: var(--cv-muted);
+	border: 0;
+	border-inline-start: 3px solid var(--cv-solid);
+}
+
+.flux_content .content pre,
+.flux_content .content code {
+	background: var(--cv-bg);
+	color: #d3e7f8;
+	font-size: 0.85em;
+	border-color: var(--cv-line);
+	border-radius: 3px;
+}
+
+.flux_content .content pre {
+	padding: 20px;
+	border: 1px solid var(--cv-line);
+	line-height: 1.6;
+}
+
+.flux_content .content .text img,
+.flux_content .content .text video {
+	max-width: 100%;
+	height: auto;
+	border-radius: 3px;
+}
+
+.flux_content .content .text iframe {
+	max-width: 100%;
+}
+
+.flux_content .content .text table {
+	width: 100%;
+	font-size: 14px;
+	border-collapse: collapse;
+}
+
+.flux_content .content .text th,
+.flux_content .content .text td {
+	padding: 10px 14px;
+	border: 1px solid var(--cv-line);
+	text-align: start;
+}
+
+.flux_content .content .text th {
+	background: var(--cv-raised);
+	color: var(--cv-fg);
+}
+
+.flux_content > footer {
+	margin-top: 28px;
+	padding: 10px 20px;
+	background: var(--cv-raised);
+	border-top: 1px solid var(--cv-line);
+}
+
+.flux_content .content .tags .list-tags .item.tag a {
+	padding: 2px 6px;
+	background: #192b3b;
+	color: #b8ddfa;
+	font-size: 12px;
+	border: 1px solid #305577;
+	border-radius: 2px;
+	text-decoration: none;
+}
+
+@media (max-width: 840px) {
+	.header > .item.title {
+		width: 75%;
+	}
+
+	#stream.normal, #stream.reader, #stream.global {
+		padding: 12px 8px 72px;
+	}
+
+	#stream.normal .flux > .flux_header {
+		padding-inline: 4px;
+	}
+
+	.flux .flux_header .item.website {
+		width: 32px;
+	}
+
+	.flux_content .content {
+		font-size: 16px;
+		line-height: 1.75;
+	}
+
+	#stream.normal .flux_content,
+	#stream.reader .flux .flux_content {
+		padding-top: 24px;
+	}
+
+	.flux_content .content > header,
+	.flux_content .content > .text,
+	.flux_content .content > footer {
+		padding-inline: 18px;
+	}
+
+	.flux_content .content h1.title {
+		font-size: 26px;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.flux, .flux_content, .btn {
+		transition: none;
+	}
+}
+
+/* Theme-owned Lucide outline icons; User CSS retains the base theme's icons. */
+.theme_Corvus .icon,
+.theme_Corvus .header > .item.title .logo,
+.theme_Corvus .tree-folder-items > .item.active .icon {
+	filter: none;
+	opacity: 1;
+}
+
+.theme_Corvus .btn-important .icon,
+.theme_Corvus .btn.active .icon {
+	filter: brightness(0.15);
+}
+
+/* A clear page title and restrained controls replace the old toolbar-heavy feel. */
+:root:root .header {
+	background: var(--cv-bg);
+}
+
+.corvus-page-heading {
+	margin: -20px -28px 20px;
+	padding: 20px 28px;
+	background: var(--cv-surface);
+	border-bottom: 1px solid var(--cv-line);
+}
+
+.corvus-view-label {
+	margin-bottom: 6px;
+	color: var(--cv-subtle);
+	font-size: 12px;
+}
+
+.corvus-page-heading h1 {
+	margin: 0;
+	color: var(--cv-fg);
+	font-size: 24px;
+	font-weight: 500;
+	letter-spacing: -0.03em;
+	line-height: 1.3;
+}
+
+.aside .btn-important {
+	margin: 0;
+	padding: 8px 12px;
+	background: transparent;
+	color: var(--cv-muted);
+	border-color: #54585c;
+}
+
+:root:root .nav_menu .btn.active,
+:root:root .nav_menu .btn:active {
+	background: #192b3b;
+	color: var(--cv-blue);
+	border-color: #305577;
+}
+
+.theme_Corvus .nav_menu .btn.active .icon {
+	filter: none;
+}
+
+.flux_content .content h1.title a,
+.flux_content .content h1.title a:hover {
+	text-decoration: none;
+}
+
+.flux_content .content .text {
+	padding-top: 0;
+}
+
+@media (max-width: 840px) {
+	.corvus-page-heading {
+		margin: -12px -8px 12px;
+		padding: 16px 20px;
+	}
+
+	.corvus-page-heading h1 {
+		font-size: 22px;
+	}
+}
+
+.aside .configure-feeds {
+	margin: 4px 12px 12px;
+	display: flex;
+	max-width: calc(100% - 24px);
+}
+
+.aside .configure-feeds #btn-subscription {
+	min-width: 0;
+	flex: 1;
+	text-overflow: ellipsis;
+}
+
+.aside .configure-feeds #btn-add {
+	flex: 0 0 auto;
+}
+
+.theme_Corvus .aside .btn-important .icon {
+	filter: none;
+}
