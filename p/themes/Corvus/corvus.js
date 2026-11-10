@@ -107,10 +107,63 @@
 		}
 	}
 
+	function decorateExtensions() {
+		if (!document.documentElement.classList.contains('controller_extension')) return;
+		const main = document.querySelector('main.post');
+		if (!main) return;
+		main.classList.add('cv-extensions');
+		const table = main.querySelector(':scope > .table-wrapper > table');
+		if (!table || table.closest('.cv-extension-panel')) return;
+		table.classList.add('cv-community-table');
+		const first = table.querySelector('tr');
+		if (first?.querySelector('th') && !table.tHead) {
+			const head = table.createTHead();
+			head.append(first);
+		}
+		for (const th of table.querySelectorAll('th')) th.scope = 'col';
+		const wrapper = table.parentElement;
+		const panel = document.createElement('section');
+		panel.className = 'cv-extension-panel';
+		wrapper.before(panel);
+		const toolbar = document.createElement('div');
+		toolbar.className = 'cv-extension-toolbar';
+		const search = document.createElement('input');
+		search.type = 'search';
+		search.placeholder = 'Search extensions';
+		search.setAttribute('aria-label', 'Search community extensions');
+		const count = document.createElement('span');
+		count.className = 'cv-extension-count';
+		count.setAttribute('aria-live', 'polite');
+		const rows = [...table.querySelectorAll('tbody tr')];
+		for (const row of rows) {
+			// These refer to native columns before an installer adds its own columns.
+			if (row.cells.length === 5) {
+				row.cells[0].classList.add('cv-extension-name');
+				row.cells[2].classList.add('cv-extension-author');
+				row.cells[3].classList.add('cv-extension-description');
+				row.cells[4].classList.add('cv-extension-compatibility');
+			}
+		}
+		const update = () => {
+			const query = search.value.trim().toLocaleLowerCase();
+			let visible = 0;
+			for (const row of rows) {
+				row.hidden = !row.textContent.toLocaleLowerCase().includes(query);
+				if (!row.hidden) visible++;
+			}
+			count.textContent = visible + ' / ' + rows.length;
+		};
+		search.addEventListener('input', update);
+		toolbar.append(search, count);
+		panel.append(toolbar, wrapper);
+		update();
+	}
+
 	function initialise() {
 		decorate();
 		decorateAdmin();
 		decorateLogs();
+		decorateExtensions();
 	}
 	if (document.readyState === 'loading') {
 		document.addEventListener('DOMContentLoaded', initialise, { once: true });

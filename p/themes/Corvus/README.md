@@ -103,6 +103,23 @@ Clearing logs remains the existing explicit FreshRSS action.
 The CSS-only installation provides visual overrides; install the full theme or also enable User JS
 for the structural administration changes.
 
+## Extension catalogue and installation
+
+Version 1.2.1 gives the community catalogue the same panel, toolbar and table styling as the logs
+workspace, with client-side search and a visible/total row count. Installed extension rows and
+optional Extension Manager buttons use the same spacing and control styles.
+
+The theme does not install executable files. The community
+[Extension Manager](https://github.com/featurecreep-cron/freshrss-extensions/tree/main/xExtension-ExtensionManager)
+already supplies Install/Update/Remove controls and a server backend that checks administrator
+access, POST methods and CSRF tokens. Install it manually once, then enable it in FreshRSS.
+No extra User JS installer is necessary and no installer backend is bundled with this theme.
+
+That manager currently supports GitHub repositories. Immediate installation needs a writable
+extensions directory; its queue mode requires applying `install-queued.sh` on the server.
+Installation/removal changes files shared by all users; per-user enable/disable is separate.
+See its own README for installation modes and requirements. The theme does not change those rules.
+
 ## Optional settings UI
 
 Corvus 1.2 exposes typography, width and spacing variables for the companion

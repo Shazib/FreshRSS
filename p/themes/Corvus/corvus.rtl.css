@@ -1281,3 +1281,207 @@ html:root .dropdown-menu {
 		padding: 12px;
 	}
 }
+
+/* The extension catalogue uses the same panel, toolbar and row system as logs. */
+.cv-extension-panel {
+	margin-block: 16px 24px;
+	background: var(--cv-surface);
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+.cv-extension-toolbar {
+	padding: 12px 16px;
+	display: flex;
+	border-bottom: 1px solid var(--cv-line);
+	align-items: center;
+	gap: 12px;
+}
+
+.cv-extensions .cv-extension-toolbar input {
+	margin: 0;
+	max-width: 100%;
+	width: 320px;
+	min-width: 0;
+}
+
+.cv-extension-count {
+	margin-inline-start: auto;
+	color: var(--cv-subtle);
+	font-size: 12px;
+	white-space: nowrap;
+	font-variant-numeric: tabular-nums;
+}
+
+.cv-extension-panel .table-wrapper {
+	margin: 0;
+	max-width: 100%;
+	overflow-x: auto;
+}
+
+.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) {
+	margin: 0;
+	width: 100%;
+	font-size: 13px;
+	border: 0;
+	border-collapse: collapse;
+}
+
+.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) th,
+.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) td {
+	padding: 12px 16px;
+	color: var(--cv-muted);
+	border: 0;
+	border-bottom: 1px solid var(--cv-line);
+	line-height: 1.6;
+	text-align: start;
+	vertical-align: middle;
+}
+
+.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) th {
+	padding-block: 10px;
+	color: var(--cv-fg);
+	font-size: 12px;
+	font-weight: 600;
+	white-space: nowrap;
+}
+
+.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) tbody tr:hover {
+	background: var(--cv-raised);
+}
+
+.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) tr[hidden] {
+	display: none;
+}
+
+.cv-extension-name {
+	min-width: 160px;
+	font-weight: 500;
+}
+
+.cv-extension-author {
+	max-width: 160px;
+	overflow-wrap: anywhere;
+}
+
+.cv-extension-description {
+	min-width: 220px;
+	overflow-wrap: anywhere;
+}
+
+.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) .alert {
+	margin: 4px 0 0;
+	padding: 2px 6px;
+	display: inline-block;
+	font-size: 11px;
+	border-radius: 2px;
+	line-height: 18px;
+}
+
+.cv-extensions .manage-list {
+	margin: 12px 0 24px;
+	padding: 0;
+	background: var(--cv-surface);
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+}
+
+.cv-extensions .manage-list > li {
+	margin: 0;
+	padding: 12px 16px;
+	display: flex;
+	min-height: 48px;
+	box-sizing: border-box;
+	border-bottom: 1px solid var(--cv-line);
+	align-items: center;
+	gap: 12px;
+	line-height: 20px;
+}
+
+.cv-extensions .manage-list > li:last-child {
+	border-bottom: 0;
+}
+
+.cv-extensions .manage-list .ext_name {
+	margin: 0;
+	font-size: 13px;
+}
+
+@media (max-width: 840px) {
+	.cv-extension-toolbar {
+		padding: 10px 12px;
+	}
+
+	.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) th,
+	.cv-extensions :is(.cv-community-table, .ext-mgr-repo-table) td {
+		padding: 10px 12px;
+	}
+}
+
+/* Optional Extension Manager: style its own controls; leave installation to it. */
+.cv-extensions .ext-mgr-btn {
+	padding: 5px 10px;
+	min-height: 32px;
+	font-family: inherit;
+	font-size: 12px;
+	border-radius: 3px;
+	box-sizing: border-box;
+	line-height: 20px;
+}
+
+.cv-extensions .ext-mgr-install,
+.cv-extensions .ext-mgr-queued {
+	background: #192b3b;
+	border-color: #305577;
+}
+
+.cv-extensions .ext-mgr-update {
+	background: #302b1b;
+	border-color: #75602e;
+}
+
+.cv-extensions .ext-mgr-switch {
+	background: #292335;
+	border-color: #65517d;
+}
+
+.cv-extensions .ext-mgr-installed-badge {
+	padding: 2px 6px;
+	background: #202d20;
+	color: #bcdda5;
+	font-size: 11px;
+	border: 1px solid #47633b;
+	border-radius: 2px;
+	font-weight: 400;
+	white-space: nowrap;
+}
+
+.cv-extensions .ext-mgr-add-repo {
+	margin: 0;
+	padding: 12px 16px;
+	border-bottom: 1px solid var(--cv-line);
+	flex-wrap: wrap;
+}
+
+.cv-extensions .ext-mgr-url-input {
+	opacity: 1;
+	border-color: var(--cv-line);
+}
+
+.cv-extensions .ext-mgr-trash {
+	padding: 6px;
+	display: inline-flex;
+	width: 30px;
+	height: 30px;
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	opacity: 1;
+	align-items: center;
+	justify-content: center;
+}
+
+.cv-extensions .ext-mgr-trash:hover {
+	background: #32201f;
+	border-color: #82423c;
+}
