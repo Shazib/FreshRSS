@@ -110,8 +110,8 @@
 html, body {
 	background: var(--cv-bg);
 	color: var(--cv-fg);
-	font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
-	font-size: 14px;
+	font-family: var(--cv-ui-font, system-ui, -apple-system, "Segoe UI", sans-serif);
+	font-size: var(--cv-ui-size, 14px);
 }
 
 ::selection {
@@ -283,7 +283,7 @@ html:root .dropdown-menu {
 
 /* Bordered rows echo Corvus's proxy-host table; preserve every native action. */
 #stream.normal, #stream.reader, #stream.global {
-	padding: 20px 28px 60px;
+	padding: 20px var(--cv-page-padding, 28px) 60px;
 	background: var(--cv-bg);
 	box-sizing: border-box;
 }
@@ -331,7 +331,7 @@ html:root .dropdown-menu {
 	margin: 0;
 	padding: 4px 10px;
 	background: var(--cv-surface);
-	min-height: 48px;
+	min-height: var(--cv-list-row, 48px);
 	font-size: 13px;
 	border: 0;
 	box-sizing: border-box;
@@ -386,8 +386,10 @@ html:root .dropdown-menu {
 #stream.reader .flux .flux_content {
 	padding: 36px 0 0;
 	background: var(--cv-surface);
+	width: 100%;
 	border: 1px solid var(--cv-line);
 	border-radius: 3px;
+	box-sizing: border-box;
 }
 
 #stream.reader .flux.current .flux_content {
@@ -396,14 +398,14 @@ html:root .dropdown-menu {
 
 .flux_content .content {
 	color: var(--cv-muted);
-	font-size: 17px;
-	line-height: 1.8;
+	font-size: var(--cv-article-size, 17px);
+	line-height: var(--cv-article-line, 1.8);
 }
 
 .flux_content .content > header,
 .flux_content .content > .text,
 .flux_content .content > footer {
-	padding-inline: clamp(20px, 4vw, 56px);
+	padding-inline: var(--cv-article-padding, clamp(20px, 4vw, 56px));
 }
 
 .flux_content .content > header {
@@ -528,7 +530,7 @@ html:root .dropdown-menu {
 	}
 
 	#stream.normal, #stream.reader, #stream.global {
-		padding: 12px 8px 72px;
+		padding: 12px var(--cv-page-padding, 8px) 72px;
 	}
 
 	#stream.normal .flux > .flux_header {
@@ -540,8 +542,8 @@ html:root .dropdown-menu {
 	}
 
 	.flux_content .content {
-		font-size: 16px;
-		line-height: 1.75;
+		font-size: var(--cv-article-size, 16px);
+		line-height: var(--cv-article-line, 1.75);
 	}
 
 	#stream.normal .flux_content,
@@ -552,7 +554,7 @@ html:root .dropdown-menu {
 	.flux_content .content > header,
 	.flux_content .content > .text,
 	.flux_content .content > footer {
-		padding-inline: 18px;
+		padding-inline: min(var(--cv-article-padding, 18px), 8vw);
 	}
 
 	.flux_content .content h1.title {
@@ -585,8 +587,8 @@ html:root .dropdown-menu {
 }
 
 .corvus-page-heading {
-	margin: -20px -28px 20px;
-	padding: 20px 28px;
+	margin: -20px calc(-1 * var(--cv-page-padding, 28px)) 20px;
+	padding: 20px var(--cv-page-padding, 28px);
 	background: var(--cv-surface);
 	border-bottom: 1px solid var(--cv-line);
 }
@@ -597,7 +599,7 @@ html:root .dropdown-menu {
 	font-size: 12px;
 }
 
-.corvus-page-heading h1 {
+.corvus-page-heading :is(h1, h2) {
 	margin: 0;
 	color: var(--cv-fg);
 	font-size: 24px;
@@ -636,11 +638,11 @@ html:root .dropdown-menu {
 
 @media (max-width: 840px) {
 	.corvus-page-heading {
-		margin: -12px -8px 12px;
-		padding: 16px 20px;
+		margin: -12px calc(-1 * var(--cv-page-padding, 8px)) 12px;
+		padding: 16px var(--cv-page-padding, 20px);
 	}
 
-	.corvus-page-heading h1 {
+	.corvus-page-heading :is(h1, h2) {
 		font-size: 22px;
 	}
 }
@@ -685,9 +687,9 @@ html:root .dropdown-menu {
 	align-items: center;
 	justify-content: center;
 	top: 50%;
-	left: 12px;
 	transform: translateY(-50%);
 	font-variant-numeric: tabular-nums;
+	left: var(--cv-sidebar-padding, 12px);
 }
 
 /* Compact masthead and toolbar: common control height, no stacked margins. */
@@ -827,15 +829,15 @@ html:root .dropdown-menu {
 }
 
 /* Administration is a workspace: header, controls, data panel and action footer. */
-main.post.cv-admin {
-	padding: 20px 28px 40px;
+.post.cv-admin {
+	padding: 20px var(--cv-page-padding, 28px) 40px;
 	background: var(--cv-bg);
-	font-size: 14px;
 	vertical-align: top;
+	font-size: var(--cv-ui-size, 14px);
 }
 
 .cv-admin > .corvus-page-heading {
-	margin-bottom: 24px;
+	margin-bottom: var(--cv-section-spacing, 24px);
 }
 
 .cv-admin input:not([type="checkbox"], [type="radio"], [type="hidden"]),
@@ -852,6 +854,7 @@ main.post.cv-admin {
 	min-height: 34px;
 	box-sizing: border-box;
 	line-height: 20px;
+	font-size: calc(var(--cv-ui-size, 14px) * 0.93);
 }
 
 .aside.nav-list .nav-header {
@@ -1112,13 +1115,13 @@ main.post.cv-admin {
 }
 
 @media (max-width: 840px) {
-	main.post.cv-admin {
-		padding: 12px 16px 24px;
+	.post.cv-admin {
+		padding: 12px var(--cv-page-padding, 16px) 24px;
 	}
 
 	.cv-admin > .corvus-page-heading {
-		margin: -12px -16px 16px;
-		padding: 16px;
+		margin: -12px calc(-1 * var(--cv-page-padding, 16px)) 16px;
+		padding: 16px var(--cv-page-padding, 16px);
 	}
 
 	.cv-logs #loglist th:first-child {
@@ -1156,7 +1159,7 @@ main.post.cv-admin {
 
 /* Shared form geometry across display, reading, profile and extension settings. */
 .cv-admin .form-group:not(.form-actions) {
-	margin: 0 0 20px;
+	margin: 0 0 var(--cv-section-spacing, 20px);
 	display: grid;
 	grid-template-columns: minmax(140px, 200px) minmax(0, 1fr);
 	gap: 8px 24px;
@@ -1202,5 +1205,79 @@ main.post.cv-admin {
 	.cv-logs #loglist th:first-child {
 		width: 42px;
 		white-space: normal;
+	}
+}
+
+/* Stable settings hooks shared with the optional Corvus Settings extension. */
+.flux_content .content > .text {
+	font-family: var(--cv-article-font, inherit);
+}
+
+
+.aside.aside_feed .tree-folder-title {
+	padding-inline: var(--cv-sidebar-padding, 12px);
+	display: flex;
+	min-height: var(--cv-sidebar-row, 0px);
+	font-size: var(--cv-sidebar-size, 13px);
+	box-sizing: border-box;
+	align-items: center;
+	gap: 4px;
+}
+
+.aside.aside_feed .feed .item-title {
+	padding-inline-start: var(--cv-sidebar-padding, 12px);
+	display: flex;
+	min-height: var(--cv-sidebar-row, 0px);
+	font-size: var(--cv-sidebar-size, 12px);
+	box-sizing: border-box;
+	align-items: center;
+}
+
+.flux_content.content_thin,
+.flux_content .content_thin {
+	max-width: var(--cv-reader-width, 650px);
+}
+
+.flux_content.content_medium,
+.flux_content .content_medium {
+	max-width: var(--cv-reader-width, 900px);
+}
+
+.flux_content.content_large,
+.flux_content .content_large {
+	max-width: var(--cv-reader-width, 1100px);
+}
+
+.flux_content.content_no_limit,
+.flux_content .content_no_limit {
+	max-width: var(--cv-reader-width, 100%);
+}
+
+.corvus-settings-form fieldset {
+	margin: 0 0 28px;
+	padding: 20px;
+	background: var(--cv-surface);
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+}
+
+.corvus-settings-form legend {
+	margin: 0;
+	padding: 0 8px;
+	width: auto;
+	font-size: 16px;
+	border: 0;
+}
+
+.corvus-settings-form .group-controls > span {
+	margin-top: 6px;
+	display: block;
+	color: var(--cv-subtle);
+	font-size: 12px;
+}
+
+@media (max-width: 840px) {
+	.corvus-settings-form fieldset {
+		padding: 12px;
 	}
 }

@@ -3,3 +3,7 @@
 !.htaccess
 !index.html
 !README.md
+
+# Companion extension maintained alongside the Corvus theme.
+!xExtension-CorvusSettings/
+!xExtension-CorvusSettings/**

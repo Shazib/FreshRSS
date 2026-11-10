@@ -20,8 +20,8 @@
 		stream.prepend(heading);
 	}
 	function decorateAdmin() {
-		const main = document.querySelector('main.post');
-		const title = main?.querySelector(':scope > h1');
+		const main = document.querySelector('main.post, .post.extension-configure');
+		const title = main?.querySelector(':scope > h1, :scope > h2');
 		if (!title) return;
 		main.classList.add('cv-admin');
 		const header = document.createElement('div');

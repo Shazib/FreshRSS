@@ -85,8 +85,8 @@ Validation covered normal, expanded, reading, global and display-settings views;
 at 320, 390 and 768 pixels; sidebar controls, read/unread toggles, favourites, dynamic article loading and keyboard navigation.
 The generated RTL stylesheet was also checked with a Hebrew interface.
 CSS and JavaScript passed the repository's Stylelint and ESLint checks.
-The full `make test-all` suite could not run because the workspace PHP runtime lacks
-Zend OPcache; `make fix-all` also stopped at the unavailable `phpcbf` development tool.
+The full `make test-all` suite passes with the workspace PHP runtime configured, including
+866 PHPUnit tests, PHPCS, PHPStan, frontend linting and spelling checks.
 
 ## Administration workspace
 
@@ -102,6 +102,13 @@ Clearing logs remains the existing explicit FreshRSS action.
 
 The CSS-only installation provides visual overrides; install the full theme or also enable User JS
 for the structural administration changes.
+
+## Optional settings UI
+
+Corvus 1.2 exposes typography, width and spacing variables for the companion
+[Corvus Settings extension](../../../extensions/xExtension-CorvusSettings/README.md).
+Install both directories and enable the extension under Configuration → Extensions. Settings are
+per user and stored on the server. Disabling it restores the theme defaults; no core changes are needed.
 
 ## Development
 

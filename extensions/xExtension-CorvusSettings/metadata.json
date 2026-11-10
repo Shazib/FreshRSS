@@ -1,0 +1,8 @@
+{
+	"name": "Corvus Settings",
+	"author": "Shazib",
+	"description": "Per-user typography, widths and spacing for the Corvus theme.",
+	"version": "0.1.0",
+	"entrypoint": "CorvusSettings",
+	"type": "user"
+}
