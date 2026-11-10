@@ -70,12 +70,14 @@ Use one installation method at a time so old User CSS does not override newer th
 ## Implementation and compatibility
 
 - Tested against FreshRSS `edge`, commit `6af8ebc`, using PHP 8.4 and Chromium.
-- No PHP/template changes, frontend framework, remote fonts or runtime dependencies.
+- No PHP/template changes, frontend framework or remote fonts. Structural administration improvements require the bundled JavaScript.
 - CSS reuses Origine and the common FreshRSS base; theme-specific SVG icons replace native icons.
-- The small optional script adds a heading from existing translated navigation labels. It does
-  not alter article contents or replace FreshRSS's read, favourite, navigation or loading logic.
+- The script adds page headers, arranges the existing log forms into a data panel, styles native
+  pagination, and identifies empty log messages. Existing POST forms and CSRF protection remain
+  intact. Article read/favourite/navigation/loading logic stays with FreshRSS.
 - Dynamic articles receive the same styles automatically. CSS supports mobile layouts,
   keyboard focus and reduced-motion preferences. RTL CSS is generated with `rtlcss`.
+- New log helper labels are currently English; native FreshRSS labels follow the user language.
 - Older FreshRSS releases may have different selectors. Validate against your installed version.
 - Publishers' inline styling and third-party extensions may need additional overrides.
 
@@ -85,6 +87,21 @@ The generated RTL stylesheet was also checked with a Hebrew interface.
 CSS and JavaScript passed the repository's Stylelint and ESLint checks.
 The full `make test-all` suite could not run because the workspace PHP runtime lacks
 Zend OPcache; `make fix-all` also stopped at the unavailable `phpcbf` development tool.
+
+## Administration workspace
+
+Version 1.1 introduces structured administration layouts, uniform form spacing, explicit back/logout
+buttons and a logs panel with integrated search and compact pagination. Dates and times use separate
+lines; long messages wrap inside the table rather than widening the page.
+
+Empty messages are real records accepted by FreshRSS's log parser. The theme labels them
+“No message recorded” and offers a page-local toggle to hide them. Records are never deleted by
+this toggle. Pagination still counts the original server records, including hidden empty messages.
+If a page contains only empty messages, the toggle starts unchecked so the page remains explainable.
+Clearing logs remains the existing explicit FreshRSS action.
+
+The CSS-only installation provides visual overrides; install the full theme or also enable User JS
+for the structural administration changes.
 
 ## Development
 

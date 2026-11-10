@@ -825,3 +825,382 @@ html:root .dropdown-menu {
 	flex-wrap: wrap;
 	gap: 6px 8px;
 }
+
+/* Administration is a workspace: header, controls, data panel and action footer. */
+main.post.cv-admin {
+	padding: 20px 28px 40px;
+	background: var(--cv-bg);
+	font-size: 14px;
+	vertical-align: top;
+}
+
+.cv-admin > .corvus-page-heading {
+	margin-bottom: 24px;
+}
+
+.cv-admin input:not([type="checkbox"], [type="radio"], [type="hidden"]),
+.cv-admin select {
+	padding: 6px 10px;
+	min-height: 34px;
+	box-sizing: border-box;
+	font-size: 13px;
+	line-height: 20px;
+}
+
+.cv-admin .btn {
+	padding: 6px 12px;
+	min-height: 34px;
+	box-sizing: border-box;
+	line-height: 20px;
+}
+
+.aside.nav-list .nav-header {
+	padding-block: 6px;
+	background: transparent;
+	color: var(--cv-subtle);
+	font-size: 11px;
+	font-weight: 600;
+	line-height: 20px;
+}
+
+.aside.nav-list .nav-section .item > a,
+.aside.nav-list .nav-section .item > form > .as-link {
+	padding: 8px 16px;
+	min-height: 36px;
+	box-sizing: border-box;
+	font-size: 13px;
+	line-height: 20px;
+}
+
+.aside.nav-list .nav-section .item > .cv-back,
+.aside.nav-list .nav-section .item > form > .cv-signout {
+	margin: 8px 12px;
+	padding: 6px 10px;
+	background: var(--cv-surface);
+	display: flex;
+	width: calc(100% - 24px);
+	color: var(--cv-fg);
+	border: 1px solid #54585c;
+	border-radius: 3px;
+	align-items: center;
+	gap: 8px;
+	text-align: start;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+.aside.nav-list .nav-section .item > .cv-back:hover,
+.aside.nav-list .nav-section .item > form > .cv-signout:hover {
+	background: var(--cv-hover);
+	border-color: var(--cv-blue);
+}
+
+.cv-log-panel {
+	background: var(--cv-surface);
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	overflow: hidden;
+}
+
+.cv-logs .cv-log-panel > form[name="log_search"] {
+	margin: 0;
+	padding: 12px 16px;
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	flex-wrap: wrap;
+	border-bottom: 1px solid var(--cv-line);
+}
+
+.cv-logs form[name="log_search"] label {
+	padding: 0;
+	color: var(--cv-muted);
+	font-size: 12px;
+	line-height: 20px;
+}
+
+.cv-logs #log-search {
+	max-width: 100%;
+	width: 320px;
+	min-width: 0;
+	flex: 0 1 320px;
+}
+
+.cv-logs .cv-log-panel > form[method="post"] {
+	margin: 0;
+}
+
+.cv-empty-toggle {
+	padding: 10px 16px;
+	display: flex;
+	color: var(--cv-subtle);
+	font-size: 12px;
+	border-bottom: 1px solid var(--cv-line);
+	align-items: center;
+	gap: 8px;
+	cursor: pointer;
+}
+
+.cv-empty-toggle input[type="checkbox"] {
+	margin: 0;
+	width: 14px;
+	height: 14px;
+	accent-color: var(--cv-solid);
+}
+
+.cv-logs #loglist-wrapper {
+	margin: 0;
+	width: 100%;
+}
+
+.cv-logs #loglist {
+	margin: 0;
+	width: 100%;
+	border: 0;
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.cv-logs #loglist th,
+.cv-logs #loglist td {
+	padding: 12px 16px;
+	color: var(--cv-muted);
+	font-family: inherit;
+	font-size: 13px;
+	border: 0;
+	border-bottom: 1px solid var(--cv-line);
+	text-align: start;
+	vertical-align: middle;
+	font-weight: 400;
+	line-height: 1.6;
+}
+
+.cv-logs #loglist th {
+	padding-block: 10px;
+	color: var(--cv-fg);
+	font-size: 12px;
+	font-weight: 600;
+}
+
+.cv-logs #loglist th:first-child {
+	width: 120px;
+}
+
+.cv-logs #loglist th:nth-child(2) {
+	width: 140px;
+}
+
+.cv-logs #loglist .log-message {
+	overflow-wrap: anywhere;
+	white-space: normal;
+}
+
+.cv-logs #loglist tbody tr:hover {
+	background: var(--cv-raised);
+}
+
+.cv-logs .log-level .icon {
+	margin-inline-end: 8px;
+	vertical-align: middle;
+}
+
+.cv-level {
+	padding: 2px 6px;
+	color: var(--cv-muted);
+	font-size: 11px;
+	border: 1px solid #54585c;
+	border-radius: 2px;
+	text-transform: capitalize;
+}
+
+.log-warning .cv-level {
+	color: #f6d980;
+	border-color: #75602e;
+}
+
+.log-error .cv-level {
+	color: #ffb0a8;
+	border-color: #82423c;
+}
+
+.cv-log-day, .cv-log-clock {
+	display: block;
+	font-variant-numeric: tabular-nums;
+}
+
+.cv-log-clock {
+	color: var(--cv-subtle);
+	font-size: 12px;
+}
+
+.cv-logs #loglist .cv-empty-log .log-message {
+	color: var(--cv-subtle);
+	font-style: italic;
+}
+
+/* Use compact discrete page buttons instead of a stretched table of links. */
+.cv-logs .nav-pagination {
+	margin: 0;
+	padding: 12px 16px;
+	background: var(--cv-surface);
+	border-bottom: 1px solid var(--cv-line);
+}
+
+.cv-logs .pagination {
+	margin: 0;
+	background: transparent;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 4px;
+}
+
+.cv-logs .pagination .item {
+	background: transparent;
+	display: flex;
+	width: auto;
+	border: 0;
+	min-width: 32px;
+	min-height: 32px;
+	align-items: center;
+	justify-content: center;
+	line-height: 20px;
+}
+
+.cv-logs .pagination .item[hidden],
+.cv-logs .log-item[hidden] {
+	display: none;
+}
+
+.cv-logs .pagination .item a {
+	padding: 5px 10px;
+	display: flex;
+	min-height: 32px;
+	box-sizing: border-box;
+	color: var(--cv-muted);
+	border: 1px solid var(--cv-line);
+	border-radius: 3px;
+	align-items: center;
+	justify-content: center;
+	line-height: 20px;
+}
+
+.cv-logs .pagination .item.active a {
+	background: #192b3b;
+	color: var(--cv-blue);
+	border-color: #305577;
+}
+
+.cv-logs .pagination .item a:hover {
+	background: var(--cv-hover);
+	border-color: #54585c;
+}
+
+.cv-logs .form-group.form-actions {
+	margin: 0;
+	padding: 12px 16px;
+	background: var(--cv-surface);
+	border: 0;
+}
+
+.cv-logs .form-actions .group-controls {
+	margin: 0;
+	padding: 0;
+}
+
+.cv-log-panel > .alert {
+	margin: 16px;
+}
+
+@media (max-width: 840px) {
+	main.post.cv-admin {
+		padding: 12px 16px 24px;
+	}
+
+	.cv-admin > .corvus-page-heading {
+		margin: -12px -16px 16px;
+		padding: 16px;
+	}
+
+	.cv-logs #loglist th:first-child {
+		width: 36px;
+	}
+
+	.cv-logs .log-level .cv-level {
+		display: none;
+	}
+
+	.cv-logs #loglist th:nth-child(2) {
+		width: 82px;
+	}
+
+	.cv-logs #loglist th,
+	.cv-logs #loglist td {
+		padding: 10px 8px;
+		font-size: 12px;
+	}
+}
+
+.cv-logs #loglist tr.log-error {
+	background: transparent;
+}
+
+.cv-logs #loglist tr.log-error:hover {
+	background: var(--cv-raised);
+}
+
+.cv-logs form[name="log_search"] .nav-pagination {
+	margin-inline-start: auto;
+	padding: 0;
+	border: 0;
+}
+
+/* Shared form geometry across display, reading, profile and extension settings. */
+.cv-admin .form-group:not(.form-actions) {
+	margin: 0 0 20px;
+	display: grid;
+	grid-template-columns: minmax(140px, 200px) minmax(0, 1fr);
+	gap: 8px 24px;
+	align-items: start;
+}
+
+.cv-admin .form-group .group-name {
+	padding: 7px 0;
+	float: none;
+	width: auto;
+	text-align: start;
+	line-height: 20px;
+}
+
+.cv-admin .form-group .group-controls {
+	margin: 0;
+	padding: 0;
+	min-width: 0;
+}
+
+.cv-admin .form-group.form-actions .group-controls {
+	margin-inline-start: 224px;
+}
+
+.cv-logs .form-group.form-actions .group-controls {
+	margin-inline-start: 0;
+}
+
+@media (max-width: 840px) {
+	.cv-admin .form-group:not(.form-actions) {
+		grid-template-columns: minmax(0, 1fr);
+		gap: 4px;
+	}
+
+	.cv-admin .form-group .group-name {
+		padding-block: 0;
+	}
+
+	.cv-admin .form-group.form-actions .group-controls {
+		margin-inline-start: 0;
+	}
+
+	.cv-logs #loglist th:first-child {
+		width: 42px;
+		white-space: normal;
+	}
+}
